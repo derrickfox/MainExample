@@ -1,3 +1,16 @@
-<p>
-  chef-list works!
-</p>
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewChef()">New Chef</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-chef-item
+        *ngFor="let chefEl of chefs; let i = index"
+        [chef]="chefEl"
+        [index]="i"></app-chef-item>
+    </div>
+  </div>
+  
+  
