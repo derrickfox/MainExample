@@ -5,18 +5,19 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipesComponent } from './chefs/recipes/recipes.component';
+import { RecipeListComponent } from './chefs/recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './chefs/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './chefs/recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { RecipeService } from './recipes/recipe.service';
+import { RecipeStartComponent } from './chefs/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './chefs/recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './chefs/recipes/recipe.service';
+import { ChefsComponent } from './chefs/chefs.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RecipeService } from './recipes/recipe.service';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    ChefsComponent
   ],
   imports: [
     BrowserModule,
