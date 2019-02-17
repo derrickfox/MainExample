@@ -23,6 +23,7 @@ import { ChefDetailComponent } from './chefs/chef-detail/chef-detail.component';
 import { ChefEditComponent } from './chefs/chef-edit/chef-edit.component';
 import { ChefListComponent } from './chefs/chef-list/chef-list.component';
 import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
+import { ChefItemComponent } from './chefs/chef-list/chef-item/chef-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
     ChefDetailComponent,
     ChefEditComponent,
     ChefListComponent,
-    ChefStartComponent
+    ChefStartComponent,
+    ChefItemComponent
   ],
   imports: [
     BrowserModule,

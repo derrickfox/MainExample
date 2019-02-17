@@ -45,7 +45,7 @@ export class ChefsService {
     return this.chefs.slice();
   }
 
-  getRecipe(index: number) {
+  getChef(index: number) {
     return this.chefs[index];
   }
 
