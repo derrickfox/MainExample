@@ -12,34 +12,34 @@ export class ChefsService {
 
   private chefs: Chef[] = [
     new Chef(
-      'Test Chef',
-      'A jerk',
-      'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+      'Test Chef One',
+      'First Bio Test',
+      'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
-        new Recipe('Test Recipe', 
-                    'Test Description', 
-                    'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', 
-                    [
-                      new Ingredient('Buns', 2),
-                      new Ingredient('Meat', 1)
-                    ])
+        new Recipe('First Recipe',
+          '#1 Test Description',
+          '',
+          [
+            new Ingredient('Buns', 2),
+            new Ingredient('Meat', 1)
+          ])
       ]),
-      new Chef(
-        'Second Chef',
-        'A nice dude',
-        'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
-        [
-          new Recipe('Test Recipe', 
-                      'Test Description', 
-                      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg', 
-                      [
-                        new Ingredient('Stuff', 23),
-                        new Ingredient('Crap', 11)
-                      ])
-        ])
+    new Chef(
+      'Second Chef',
+      'Second Bio Test',
+      'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
+      [
+        new Recipe('Second Recipe',
+          '#2 Test Description',
+          '',
+          [
+            new Ingredient('Stuff', 23),
+            new Ingredient('Crap', 11)
+          ])
+      ])
   ];
 
-  constructor(private slService: ShoppingListService) {}
+  constructor(private slService: ShoppingListService) { }
 
   getChefs() {
     return this.chefs.slice();
