@@ -18,6 +18,11 @@ import { RecipeStartComponent } from './chefs/recipes/recipe-start/recipe-start.
 import { RecipeEditComponent } from './chefs/recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './chefs/recipes/recipe.service';
 import { ChefsComponent } from './chefs/chefs.component';
+import { ChefsService } from './chefs/chefs.service';
+import { ChefDetailComponent } from './chefs/chef-detail/chef-detail.component';
+import { ChefEditComponent } from './chefs/chef-edit/chef-edit.component';
+import { ChefListComponent } from './chefs/chef-list/chef-list.component';
+import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,11 @@ import { ChefsComponent } from './chefs/chefs.component';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    ChefsComponent
+    ChefsComponent,
+    ChefDetailComponent,
+    ChefEditComponent,
+    ChefListComponent,
+    ChefStartComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,7 @@ import { ChefsComponent } from './chefs/chefs.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, ChefsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
