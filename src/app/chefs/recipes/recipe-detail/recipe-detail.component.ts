@@ -28,6 +28,10 @@ export class RecipeDetailComponent implements OnInit {
       );
   }
 
+  onClick() {
+    alert('working!!');
+  }
+
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
