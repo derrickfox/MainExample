@@ -16,8 +16,9 @@ export class ChefsService {
       'First Bio Test',
       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
-        new Recipe('First Recipe',
-          '#1 Test Description',
+        new Recipe(
+          'From Chef Service, Recipe 1',
+          'Service One',
           '',
           [
             new Ingredient('Buns', 2),
@@ -29,8 +30,9 @@ export class ChefsService {
       'Second Bio Test',
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
-        new Recipe('Second Recipe',
-          '#2 Test Description',
+        new Recipe(
+          'From Chef Service, Recipe 2',
+          'Service Two',
           '',
           [
             new Ingredient('Stuff', 23),

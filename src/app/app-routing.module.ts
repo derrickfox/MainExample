@@ -13,21 +13,24 @@ import { ChefEditComponent } from './chefs/chef-edit/chef-edit.component';
 import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  {
-    path: 'recipes', component: RecipesComponent, children: [
-      { path: '', component: RecipeStartComponent },
-      { path: 'new', component: RecipeEditComponent },
-      { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: RecipeEditComponent },
-    ]
-  },
+  { path: '', redirectTo: '/chefs', pathMatch: 'full' },
   {
     path: 'chefs', component: ChefsComponent, children: [
       { path: '', component: ChefStartComponent },
       { path: 'new', component: ChefEditComponent },
-      { path: ':id', component: ChefDetailComponent },
       { path: ':id/edit', component: ChefEditComponent },
+      {
+        path: ':id', component: ChefDetailComponent, children: [
+          {
+            path: 'recipes', component: RecipesComponent, children: [
+              { path: '', component: RecipeStartComponent },
+              { path: 'new', component: RecipeEditComponent },
+              { path: ':id', component: RecipeDetailComponent },
+              { path: ':id/edit', component: RecipeEditComponent },
+            ]
+          }
+        ]
+      }
     ]
   },
   { path: 'shopping-list', component: ShoppingListComponent },
