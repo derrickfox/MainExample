@@ -11,16 +11,16 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Test 1',
-      'First Description Test',
+      'From Recipe Service 1',
+      'Recipe One',
       'https://www.chinalawblog.com/wp-content/uploads/sites/110/2016/11/list-147904_960_720-550x675.png',
       [
         new Ingredient('Meat', 1),
         new Ingredient('French Fries', 20)
       ]),
     new Recipe(
-      'Test 2',
-      'Second Description Test',
+      'From Recipe Service 2',
+      'Recipe Two',
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
         new Ingredient('Buns', 2),
