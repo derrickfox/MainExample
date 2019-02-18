@@ -24,6 +24,11 @@ import { ChefEditComponent } from './chefs/chef-edit/chef-edit.component';
 import { ChefListComponent } from './chefs/chef-list/chef-list.component';
 import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
 import { ChefItemComponent } from './chefs/chef-list/chef-item/chef-item.component';
+import { IngredientsComponent } from './chefs/recipes/ingredients/ingredients.component';
+import { IngredientDetailComponent } from './chefs/recipes/ingredients/ingredient-detail/ingredient-detail.component';
+import { IngredientEditComponent } from './chefs/recipes/ingredients/ingredient-edit/ingredient-edit.component';
+import { IngredientListComponent } from './chefs/recipes/ingredients/ingredient-list/ingredient-list.component';
+import { IngredientStartComponent } from './chefs/recipes/ingredients/ingredient-start/ingredient-start.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { ChefItemComponent } from './chefs/chef-list/chef-item/chef-item.compone
     ChefEditComponent,
     ChefListComponent,
     ChefStartComponent,
-    ChefItemComponent
+    ChefItemComponent,
+    IngredientsComponent,
+    IngredientDetailComponent,
+    IngredientEditComponent,
+    IngredientListComponent,
+    IngredientStartComponent
   ],
   imports: [
     BrowserModule,
