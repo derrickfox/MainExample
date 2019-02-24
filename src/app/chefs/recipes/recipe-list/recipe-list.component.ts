@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
+import { ChefsService } from '../../chefs.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -14,19 +14,19 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
 
-  constructor(private recipeService: RecipeService,
+  constructor(private chefsService: ChefsService,
               private router: Router,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.subscription = this.recipeService.recipesChanged
+    this.subscription = this.chefsService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
         }
       );
-    this.recipes = this.recipeService.getRecipes();
+    this.recipes = this.chefsService.getRecipes();
   }
 
   onNewRecipe() {
