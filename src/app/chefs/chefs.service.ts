@@ -9,6 +9,22 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable()
 export class ChefsService {
   chefsChanged = new Subject<Chef[]>();
+  recipesChanged = new Subject<Recipe[]>();
+  selectedChef = new Chef(
+    'Mock',
+    'Mock',
+    'imagepath',
+    [
+      new Recipe(
+        'Recipe Object One',
+        'Object Description',
+        'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
+        [
+          new Ingredient('kdjal', 3)
+        ]
+      )
+    ]
+  );
 
   private chefs: Chef[] = [
     new Chef(
@@ -17,28 +33,50 @@ export class ChefsService {
       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
         new Recipe(
-          'From Chef Service, Recipe 1',
-          'Service One',
+          'Chef One, Recipe One',
+          'Service One-One',
+          '',
+          [
+            new Ingredient('Stuff', 4),
+            new Ingredient('Crap', 9)
+          ]
+        ),
+        new Recipe(
+          'Chef One, Recipe Two',
+          'Service One-Two',
           '',
           [
             new Ingredient('Buns', 2),
             new Ingredient('Meat', 1)
-          ])
-      ]),
+          ]
+        )
+      ]
+    ),
     new Chef(
       'Second Chef',
       'Second Bio Test',
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
         new Recipe(
-          'From Chef Service, Recipe 2',
+          'Chef Two, Recipe One',
           'Service Two',
           '',
           [
-            new Ingredient('Stuff', 23),
-            new Ingredient('Crap', 11)
-          ])
-      ])
+            new Ingredient('Bark', 23),
+            new Ingredient('Dirt', 11)
+          ]
+        ),
+        new Recipe(
+          'Chef Two, Recipe Two',
+          'Service Two',
+          '',
+          [
+            new Ingredient('Sky', 23),
+            new Ingredient('Watr', 11)
+          ]
+        )
+      ]
+    )
   ];
 
   constructor(private slService: ShoppingListService) { }
@@ -68,5 +106,28 @@ export class ChefsService {
   deleteChef(index: number) {
     this.chefs.splice(index, 1);
     this.chefsChanged.next(this.chefs.slice());
+  }
+
+  getRecipes() {
+    return this.selectedChef.recipes.slice();
+  }
+
+  getRecipe(index: number) {
+    return this.chefs[index];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.selectedChef.recipes.push(recipe);
+    this.recipesChanged.next(this.selectedChef.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.selectedChef.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.selectedChef.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    this.selectedChef.recipes.splice(index, 1);
+    this.recipesChanged.next(this.selectedChef.recipes.slice());
   }
 }
