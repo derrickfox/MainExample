@@ -28,8 +28,8 @@ export class ChefsService {
 
   private chefs: Chef[] = [
     new Chef(
-      'Test Chef One',
-      'First Bio Test',
+      'Peter',
+      'Uptown Kitchen',
       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
         new Recipe(
@@ -53,13 +53,13 @@ export class ChefsService {
       ]
     ),
     new Chef(
-      'Second Chef',
-      'Second Bio Test',
+      'Jorge',
+      'Downtown Deli',
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
         new Recipe(
           'Chef Two, Recipe One',
-          'Service Two',
+          'Chef Service 1',
           '',
           [
             new Ingredient('Bark', 23),
@@ -68,7 +68,7 @@ export class ChefsService {
         ),
         new Recipe(
           'Chef Two, Recipe Two',
-          'Service Two',
+          'Chef Service 2',
           '',
           [
             new Ingredient('Sky', 23),
