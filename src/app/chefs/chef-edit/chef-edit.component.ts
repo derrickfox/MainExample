@@ -69,7 +69,7 @@ export class ChefEditComponent implements OnInit {
     if (this.editMode) {
       const chef = this.chefService.getChef(this.id);
       chefName = chef.name;
-      chefImagePath = chef.imagePath;
+      // chefImagePath = chef.imagePath;
       chefDescription = chef.description;
       if (chef['ingredients']) {
         for (let recipe of chef.recipes) {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { Chef } from '../chefs/chef.model';
@@ -7,7 +7,7 @@ import { Ingredient } from './recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable()
-export class ChefsService {
+export class ChefsService implements OnInit {
   chefsChanged = new Subject<Chef[]>();
   recipesChanged = new Subject<Recipe[]>();
   selectedChef = new Chef(
@@ -16,11 +16,11 @@ export class ChefsService {
     'imagepath',
     [
       new Recipe(
-        'Recipe Object One',
-        'Object Description',
+        '*******',
+        '******',
         'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
         [
-          new Ingredient('kdjal', 3)
+          new Ingredient('*****', 3)
         ]
       )
     ]
@@ -33,8 +33,8 @@ export class ChefsService {
       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
         new Recipe(
-          'Chef One, Recipe One',
-          'Service One-One',
+          'Peters Pack o Peters',
+          'From chef service',
           '',
           [
             new Ingredient('Stuff', 4),
@@ -42,8 +42,8 @@ export class ChefsService {
           ]
         ),
         new Recipe(
-          'Chef One, Recipe Two',
-          'Service One-Two',
+          'Peters Pizza Pie',
+          'From chef service',
           '',
           [
             new Ingredient('Buns', 2),
@@ -58,8 +58,8 @@ export class ChefsService {
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
         new Recipe(
-          'Chef Two, Recipe One',
-          'Chef Service 1',
+          'Jorges Jamalaya',
+          'From chef service',
           '',
           [
             new Ingredient('Bark', 23),
@@ -67,8 +67,8 @@ export class ChefsService {
           ]
         ),
         new Recipe(
-          'Chef Two, Recipe Two',
-          'Chef Service 2',
+          'Jorges Jerk Chicken',
+          'From chef service',
           '',
           [
             new Ingredient('Sky', 23),
@@ -79,27 +79,110 @@ export class ChefsService {
     )
   ];
 
+  chefsJSON = {
+    "chefs": [
+      {
+        "name": "Chuck",
+        "description": "Description chuck",
+        "image": "some image",
+        "recipes": [
+          {
+            "name": "Recipe Chuck One",
+            "description": "recipe description one",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Onion",
+                "quantity": 4
+              },
+              {
+                "name": "Potato",
+                "quantity": 8
+              }
+            ]
+          },
+          {
+            "name": "Recipe Chuck Two",
+            "description": "recipe description two",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Celery",
+                "quantity": 5
+              },
+              {
+                "name": "Nuts",
+                "quantity": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dave",
+        "description": "Description dave",
+        "image": "some image dave",
+        "recipes": [
+          {
+            "name": "Recipe Dave One",
+            "description": "recipe description one",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Beef",
+                "quantity": 6
+              },
+              {
+                "name": "Salt",
+                "quantity": 9
+              }
+            ]
+          },
+          {
+            "name": "Recipe Dave Two",
+            "description": "recipe description two",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Jelly",
+                "quantity": 1
+              },
+              {
+                "name": "Water",
+                "quantity": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
   constructor(private slService: ShoppingListService) { }
 
+  ngOnInit() {
+
+  }
+
   getChefs() {
-    return this.chefs.slice();
+    return this.chefsJSON.chefs.slice();
   }
 
   getChef(index: number) {
-    return this.chefs[index];
+    return this.chefsJSON.chefs[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 
-  addChef(chef: Chef) {
-    this.chefs.push(chef);
+  addChef(chef) {
+    this.chefsJSON.chefs.push(chef);
     this.chefsChanged.next(this.chefs.slice());
   }
 
-  updateChef(index: number, newChef: Chef) {
-    this.chefs[index] = newChef;
+  updateChef(index: number, newChef) {
+    this.chefsJSON.chefs[index] = newChef;
     this.chefsChanged.next(this.chefs.slice());
   }
 
@@ -108,12 +191,12 @@ export class ChefsService {
     this.chefsChanged.next(this.chefs.slice());
   }
 
-  getRecipes() {
-    return this.selectedChef.recipes.slice();
+  getRecipes(index) {
+    return this.chefsJSON.chefs[index].recipes.slice();
   }
 
   getRecipe(index: number) {
-    return this.chefs[index];
+    return this.chefsJSON.chefs[index].recipes[index];
   }
 
   addRecipe(recipe: Recipe) {
