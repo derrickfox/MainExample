@@ -11,7 +11,7 @@ import { ChefsService } from '../../chefs.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
-  recipes: Recipe[];
+  recipes;
   subscription: Subscription;
 
   constructor(private chefsService: ChefsService,
@@ -26,7 +26,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
           this.recipes = recipes;
         }
       );
-    this.recipes = this.chefsService.getRecipes();
+    this.recipes = this.chefsService.getRecipes(0);
   }
 
   onNewRecipe() {

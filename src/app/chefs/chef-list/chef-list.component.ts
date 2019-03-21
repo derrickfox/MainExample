@@ -11,7 +11,7 @@ import { ChefsService } from '../chefs.service';
   styleUrls: ['./chef-list.component.css']
 })
 export class ChefListComponent implements OnInit, OnDestroy {
-  chefs: Chef[];
+  chefs;
   subscription: Subscription;
 
   constructor(private chefsService: ChefsService,

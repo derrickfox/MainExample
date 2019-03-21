@@ -10,7 +10,7 @@ import { ChefsService } from '../chefs.service';
   styleUrls: ['./chef-detail.component.css']
 })
 export class ChefDetailComponent implements OnInit {
-  chef: Chef;
+  chef;
   id: number;
 
   constructor(private chefsService: ChefsService,
