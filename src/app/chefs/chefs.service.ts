@@ -93,11 +93,11 @@ export class ChefsService implements OnInit {
             "ingredients": [
               {
                 "name": "Onion",
-                "quantity": 4
+                "amount": 4
               },
               {
                 "name": "Potato",
-                "quantity": 8
+                "amount": 8
               }
             ]
           },
@@ -108,11 +108,11 @@ export class ChefsService implements OnInit {
             "ingredients": [
               {
                 "name": "Celery",
-                "quantity": 5
+                "amount": 5
               },
               {
                 "name": "Nuts",
-                "quantity": 3
+                "amount": 3
               }
             ]
           }
@@ -130,11 +130,11 @@ export class ChefsService implements OnInit {
             "ingredients": [
               {
                 "name": "Beef",
-                "quantity": 6
+                "amount": 6
               },
               {
                 "name": "Salt",
-                "quantity": 9
+                "amount": 9
               }
             ]
           },
@@ -145,11 +145,11 @@ export class ChefsService implements OnInit {
             "ingredients": [
               {
                 "name": "Jelly",
-                "quantity": 1
+                "amount": 1
               },
               {
                 "name": "Water",
-                "quantity": 3
+                "amount": 3
               }
             ]
           }
@@ -158,7 +158,9 @@ export class ChefsService implements OnInit {
     ]
   }
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(
+    private slService: ShoppingListService,
+    ) { }
 
   ngOnInit() {
 

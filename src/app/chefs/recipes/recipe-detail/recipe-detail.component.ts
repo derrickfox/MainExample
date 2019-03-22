@@ -24,7 +24,7 @@ export class RecipeDetailComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.recipe = this.chefsService.getRecipe(this.id);
-          console.log('selected recipe: ', this.recipe);
+          console.log('this.route.url:', this.route.url);
         }
       );
   }
