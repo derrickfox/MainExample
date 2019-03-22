@@ -1,6 +1,6 @@
-import { Recipe } from '../chefs/recipes/recipe.model';
+import { Recipe } from '../lists/recipes/recipe.model';
 
-export class Chef {
+export class List {
   public name: string;
   public description: string;
   public imagePath: string;
