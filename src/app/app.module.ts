@@ -5,30 +5,30 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './chefs/recipes/recipes.component';
-import { RecipeListComponent } from './chefs/recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './chefs/recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './chefs/recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipesComponent } from './lists/recipes/recipes.component';
+import { RecipeListComponent } from './lists/recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './lists/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './lists/recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeStartComponent } from './chefs/recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './chefs/recipes/recipe-edit/recipe-edit.component';
-import { RecipeService } from './chefs/recipes/recipe.service';
-import { ChefsComponent } from './chefs/chefs.component';
-import { ChefsService } from './chefs/chefs.service';
-import { ChefDetailComponent } from './chefs/chef-detail/chef-detail.component';
-import { ChefEditComponent } from './chefs/chef-edit/chef-edit.component';
-import { ChefListComponent } from './chefs/chef-list/chef-list.component';
-import { ChefStartComponent } from './chefs/chef-start/chef-start.component';
-import { ChefItemComponent } from './chefs/chef-list/chef-item/chef-item.component';
-import { IngredientsComponent } from './chefs/recipes/ingredients/ingredients.component';
-import { IngredientDetailComponent } from './chefs/recipes/ingredients/ingredient-detail/ingredient-detail.component';
-import { IngredientEditComponent } from './chefs/recipes/ingredients/ingredient-edit/ingredient-edit.component';
-import { IngredientListComponent } from './chefs/recipes/ingredients/ingredient-list/ingredient-list.component';
-import { IngredientStartComponent } from './chefs/recipes/ingredients/ingredient-start/ingredient-start.component';
+import { RecipeStartComponent } from './lists/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './lists/recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './lists/recipes/recipe.service';
+import { ListsComponent } from './lists/lists.component';
+import { ListsService } from './lists/lists.service';
+import { ListDetailComponent } from './lists/list-details/list-detail.component';
+import { ListEditComponent } from './lists/list-edit/list-edit.component';
+import { ListListComponent } from './lists/list-list/list-list.component';
+import { ListStartComponent } from './lists/list-start/list-start.component';
+import { ListItemComponent } from './lists/list-list/list-item/list-item.component';
+import { IngredientsComponent } from './lists/recipes/ingredients/ingredients.component';
+import { IngredientDetailComponent } from './lists/recipes/ingredients/ingredient-detail/ingredient-detail.component';
+import { IngredientEditComponent } from './lists/recipes/ingredients/ingredient-edit/ingredient-edit.component';
+import { IngredientListComponent } from './lists/recipes/ingredients/ingredient-list/ingredient-list.component';
+import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient-start/ingredient-start.component';
 
 @NgModule({
   declarations: [
@@ -43,12 +43,12 @@ import { IngredientStartComponent } from './chefs/recipes/ingredients/ingredient
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    ChefsComponent,
-    ChefDetailComponent,
-    ChefEditComponent,
-    ChefListComponent,
-    ChefStartComponent,
-    ChefItemComponent,
+    ListsComponent,
+    ListDetailComponent,
+    ListEditComponent,
+    ListListComponent,
+    ListStartComponent,
+    ListItemComponent,
     IngredientsComponent,
     IngredientDetailComponent,
     IngredientEditComponent,
@@ -62,7 +62,7 @@ import { IngredientStartComponent } from './chefs/recipes/ingredients/ingredient
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService, RecipeService, ChefsService],
+  providers: [ShoppingListService, RecipeService, ListsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,13 +4,13 @@
   routerLinkActive="active"
   class="list-group-item clearfix">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ chef.name }}</h4>
-    <p class="list-group-item-text">{{ chef.description }}</p>
+    <h4 class="list-group-item-heading">{{ list.name }}</h4>
+    <p class="list-group-item-text">{{ list.description }}</p>
   </div>
   <span class="pull-right">
         <img
-          [src]="chef.imagePath"
-          alt="{{ chef.name }}"
+          [src]="list.imagePath"
+          alt="{{ list.name }}"
           class="img-responsive"
           style="max-height: 50px;">
       </span>

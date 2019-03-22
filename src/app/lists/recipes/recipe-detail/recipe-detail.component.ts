@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
-import { ChefsService } from '../../chefs.service';
+import { ListsService } from '../../lists.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,7 +13,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe;
   id: number;
 
-  constructor(private chefsService: ChefsService,
+  constructor(private listsService: ListsService,
               private route: ActivatedRoute,
               private router: Router) {
   }
@@ -23,7 +23,7 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.recipe = this.chefsService.getRecipe(this.id);
+          this.recipe = this.listsService.getRecipe(this.id);
           console.log('this.route.url:', this.route.url);
         }
       );
@@ -43,7 +43,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.chefsService.deleteRecipe(this.id);
+    this.listsService.deleteRecipe(this.id);
     this.router.navigate(['/recipes']);
   }
 

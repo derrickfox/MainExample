@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
-import { ChefsService } from '../chefs.service';
+import { ListsService } from '../lists.service';
 
 @Component({
-  selector: 'app-chef-edit',
-  templateUrl: './chef-edit.component.html',
-  styleUrls: ['./chef-edit.component.css']
+  selector: 'app-list-edit',
+  templateUrl: './list-edit.component.html',
+  styleUrls: ['./list-edit.component.css']
 })
-export class ChefEditComponent implements OnInit {
+export class ListEditComponent implements OnInit {
   id: number;
   editMode = false;
-  chefForm: FormGroup;
+  listForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private chefService: ChefsService,
+              private listService: ListsService,
               private router: Router) {
   }
 
@@ -32,16 +32,16 @@ export class ChefEditComponent implements OnInit {
 
   onSubmit() {
     if (this.editMode) {
-      this.chefService.updateChef(this.id, this.chefForm.value);
+      this.listService.updateList(this.id, this.listForm.value);
     } else {
-      this.chefService.addChef(this.chefForm.value);
+      this.listService.addList(this.listForm.value);
     }
     this.onCancel();
   }
 
-  onAddChef() {
+  onAddList() {
     alert('working on that!');
-    // (<FormArray>this.chefForm.get('recipes')).push(
+    // (<FormArray>this.listForm.get('recipes')).push(
     //   new FormGroup({
     //     'name': new FormControl(null, Validators.required),
     //     'amount': new FormControl(null, [
@@ -53,7 +53,7 @@ export class ChefEditComponent implements OnInit {
   }
 
   onDeleteIngredient(index: number) {
-    (<FormArray>this.chefForm.get('recipes')).removeAt(index);
+    (<FormArray>this.listForm.get('recipes')).removeAt(index);
   }
 
   onCancel() {
@@ -61,19 +61,19 @@ export class ChefEditComponent implements OnInit {
   }
 
   private initForm() {
-    let chefName = '';
-    let chefImagePath = '';
-    let chefDescription = '';
-    let chefRecipes = new FormArray([]);
+    let listName = '';
+    let listImagePath = '';
+    let listDescription = '';
+    let listRecipes = new FormArray([]);
 
     if (this.editMode) {
-      const chef = this.chefService.getChef(this.id);
-      chefName = chef.name;
-      // chefImagePath = chef.imagePath;
-      chefDescription = chef.description;
-      if (chef['ingredients']) {
-        for (let recipe of chef.recipes) {
-          chefRecipes.push(
+      const list = this.listService.getList(this.id);
+      listName = list.name;
+      // listImagePath = list.imagePath;
+      listDescription = list.description;
+      if (list['ingredients']) {
+        for (let recipe of list.recipes) {
+          listRecipes.push(
             new FormGroup({
               'name': new FormControl(recipe.name, Validators.required)
               // ,
@@ -87,11 +87,11 @@ export class ChefEditComponent implements OnInit {
       }
     }
 
-    this.chefForm = new FormGroup({
-      'name': new FormControl(chefName, Validators.required),
-      'imagePath': new FormControl(chefImagePath, Validators.required),
-      'description': new FormControl(chefDescription, Validators.required),
-      'recipes': chefRecipes
+    this.listForm = new FormGroup({
+      'name': new FormControl(listName, Validators.required),
+      'imagePath': new FormControl(listImagePath, Validators.required),
+      'description': new FormControl(listDescription, Validators.required),
+      'recipes': listRecipes
     });
   }
 

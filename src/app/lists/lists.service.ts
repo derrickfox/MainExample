@@ -1,16 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { Chef } from '../chefs/chef.model';
-import { Recipe } from '../chefs/recipes/recipe.model';
+import { List } from '../lists/list.model';
+import { Recipe } from '../lists/recipes/recipe.model';
 import { Ingredient } from './recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable()
-export class ChefsService implements OnInit {
-  chefsChanged = new Subject<Chef[]>();
+export class ListsService implements OnInit {
+  listsChanged = new Subject<List[]>();
   recipesChanged = new Subject<Recipe[]>();
-  selectedChef = new Chef(
+  selectedList = new List(
     'Mock',
     'Mock',
     'imagepath',
@@ -26,15 +26,15 @@ export class ChefsService implements OnInit {
     ]
   );
 
-  private chefs: Chef[] = [
-    new Chef(
+  private lists: List[] = [
+    new List(
       'Peter',
       'Uptown Kitchen',
       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
       [
         new Recipe(
           'Peters Pack o Peters',
-          'From chef service',
+          'From list service',
           '',
           [
             new Ingredient('Stuff', 4),
@@ -43,7 +43,7 @@ export class ChefsService implements OnInit {
         ),
         new Recipe(
           'Peters Pizza Pie',
-          'From chef service',
+          'From list service',
           '',
           [
             new Ingredient('Buns', 2),
@@ -52,14 +52,14 @@ export class ChefsService implements OnInit {
         )
       ]
     ),
-    new Chef(
+    new List(
       'Jorge',
       'Downtown Deli',
       'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
       [
         new Recipe(
           'Jorges Jamalaya',
-          'From chef service',
+          'From list service',
           '',
           [
             new Ingredient('Bark', 23),
@@ -68,7 +68,7 @@ export class ChefsService implements OnInit {
         ),
         new Recipe(
           'Jorges Jerk Chicken',
-          'From chef service',
+          'From list service',
           '',
           [
             new Ingredient('Sky', 23),
@@ -79,8 +79,8 @@ export class ChefsService implements OnInit {
     )
   ];
 
-  chefsJSON = {
-    "chefs": [
+  listsJSON = {
+    "lists": [
       {
         "name": "Chuck",
         "description": "Description chuck",
@@ -166,53 +166,53 @@ export class ChefsService implements OnInit {
 
   }
 
-  getChefs() {
-    return this.chefsJSON.chefs.slice();
+  getLists() {
+    return this.listsJSON.lists.slice();
   }
 
-  getChef(index: number) {
-    return this.chefsJSON.chefs[index];
+  getList(index: number) {
+    return this.listsJSON.lists[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 
-  addChef(chef) {
-    this.chefsJSON.chefs.push(chef);
-    this.chefsChanged.next(this.chefs.slice());
+  addList(list) {
+    this.listsJSON.lists.push(list);
+    this.listsChanged.next(this.lists.slice());
   }
 
-  updateChef(index: number, newChef) {
-    this.chefsJSON.chefs[index] = newChef;
-    this.chefsChanged.next(this.chefs.slice());
+  updateList(index: number, newList) {
+    this.listsJSON.lists[index] = newList;
+    this.listsChanged.next(this.lists.slice());
   }
 
-  deleteChef(index: number) {
-    this.chefs.splice(index, 1);
-    this.chefsChanged.next(this.chefs.slice());
+  deleteList(index: number) {
+    this.lists.splice(index, 1);
+    this.listsChanged.next(this.lists.slice());
   }
 
   getRecipes(index) {
-    return this.chefsJSON.chefs[index].recipes.slice();
+    return this.listsJSON.lists[index].recipes.slice();
   }
 
   getRecipe(index: number) {
-    return this.chefsJSON.chefs[index].recipes[index];
+    return this.listsJSON.lists[index].recipes[index];
   }
 
   addRecipe(recipe: Recipe) {
-    this.selectedChef.recipes.push(recipe);
-    this.recipesChanged.next(this.selectedChef.recipes.slice());
+    this.selectedList.recipes.push(recipe);
+    this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
-    this.selectedChef.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.selectedChef.recipes.slice());
+    this.selectedList.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
   deleteRecipe(index: number) {
-    this.selectedChef.recipes.splice(index, 1);
-    this.recipesChanged.next(this.selectedChef.recipes.slice());
+    this.selectedList.recipes.splice(index, 1);
+    this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 }

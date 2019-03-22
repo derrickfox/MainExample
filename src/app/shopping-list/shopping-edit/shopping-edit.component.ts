@@ -7,7 +7,7 @@ import {
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Ingredient } from '../../chefs/recipes/ingredients/ingredient.model';
+import { Ingredient } from '../../lists/recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
