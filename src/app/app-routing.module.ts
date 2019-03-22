@@ -19,11 +19,13 @@ const appRoutes: Routes = [
       { path: '', component: ChefStartComponent },
       { path: 'new', component: ChefEditComponent },
       { path: ':id/edit', component: ChefEditComponent },
-      { path: ':id', component: ChefDetailComponent, children: [
+      { path: 'recipe/:id', component: RecipeDetailComponent },
+      {
+        path: ':id', component: ChefDetailComponent, children: [
           { path: ':id', component: RecipeDetailComponent },
-          { path: 'recipe', component: RecipeDetailComponent, children: [
-            { path: ':id', component: RecipeDetailComponent }
-          ] }
+          {
+            path: 'recipe/:id', component: RecipeDetailComponent
+          }
         ]
       }
     ]
