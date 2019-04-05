@@ -25,6 +25,10 @@ export class ListsService implements OnInit {
       )
     ]
   );
+  listSelected;
+  recipeSelected;
+  indexOfList;
+  indexOfRecipe;
 
   private lists: List[] = [
     new List(
@@ -171,7 +175,12 @@ export class ListsService implements OnInit {
   }
 
   getList(index: number) {
-    return this.listsJSON.lists[index];
+    this.listSelected = this.listsJSON.lists[index];
+    this.indexOfList = index;
+    console.log('getList() -> lists.service');
+    console.log('this.listSelected', this.listSelected);
+    console.log('this.indexOfList', this.indexOfList);
+    return this.listSelected;
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
@@ -198,7 +207,10 @@ export class ListsService implements OnInit {
   }
 
   getRecipe(index: number) {
-    return this.listsJSON.lists[index].recipes[index];
+    this.recipeSelected = this.listsJSON.lists[this.indexOfList].recipes[index];
+    // TODO this is a bug, do not use index in two different places at the same time
+    // return this.listsJSON.lists[index].recipes[index];
+    return this.recipeSelected;
   }
 
   addRecipe(recipe: Recipe) {
