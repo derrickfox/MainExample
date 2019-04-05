@@ -10,21 +10,21 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class ListsService implements OnInit {
   listsChanged = new Subject<List[]>();
   recipesChanged = new Subject<Recipe[]>();
-  selectedList = new List(
-    'Mock',
-    'Mock',
-    'imagepath',
-    [
-      new Recipe(
-        '*******',
-        '******',
-        'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
-        [
-          new Ingredient('*****', 3)
-        ]
-      )
-    ]
-  );
+  // selectedList = new List(
+  //   'Mock',
+  //   'Mock',
+  //   'imagepath',
+  //   [
+  //     new Recipe(
+  //       '*******',
+  //       '******',
+  //       'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
+  //       [
+  //         new Ingredient('*****', 3)
+  //       ]
+  //     )
+  //   ]
+  // );
   listSelected;
   recipeSelected;
   indexOfList;
@@ -86,50 +86,50 @@ export class ListsService implements OnInit {
   listsJSON = {
     "lists": [
       {
-        "name": "Chuck",
-        "description": "Description chuck",
+        "name": "Recipes",
+        "description": "List of recipes",
         "image": "some image",
         "recipes": [
           {
-            "name": "Recipe Chuck One",
-            "description": "recipe description one",
+            "name": "Banana Bread",
+            "description": "A banana cake disguised as bread.",
             "image": "some other image",
             "ingredients": [
               {
-                "name": "Onion",
+                "name": "Banana",
                 "amount": 4
               },
               {
-                "name": "Potato",
+                "name": "Bread",
                 "amount": 8
               }
             ]
           },
           {
-            "name": "Recipe Chuck Two",
-            "description": "recipe description two",
+            "name": "Steak",
+            "description": "Diced cow.",
             "image": "some other image",
             "ingredients": [
               {
-                "name": "Celery",
-                "amount": 5
+                "name": "Cow",
+                "amount": 1
               },
               {
-                "name": "Nuts",
-                "amount": 3
+                "name": "Plate",
+                "amount": 1
               }
             ]
           }
         ]
       },
       {
-        "name": "Dave",
+        "name": "Biographies",
         "description": "Description dave",
         "image": "some image dave",
         "recipes": [
           {
-            "name": "Recipe Dave One",
-            "description": "recipe description one",
+            "name": "Frank Herbert",
+            "description": "Science fiction author",
             "image": "some other image",
             "ingredients": [
               {
@@ -143,16 +143,16 @@ export class ListsService implements OnInit {
             ]
           },
           {
-            "name": "Recipe Dave Two",
-            "description": "recipe description two",
+            "name": "George Orwell",
+            "description": "Political fiction(?) author",
             "image": "some other image",
             "ingredients": [
               {
-                "name": "Jelly",
+                "name": "1984",
                 "amount": 1
               },
               {
-                "name": "Water",
+                "name": "Animal Farm",
                 "amount": 3
               }
             ]
@@ -214,17 +214,17 @@ export class ListsService implements OnInit {
   }
 
   addRecipe(recipe: Recipe) {
-    this.selectedList.recipes.push(recipe);
-    this.recipesChanged.next(this.selectedList.recipes.slice());
+    // this.selectedList.recipes.push(recipe);
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
-    this.selectedList.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.selectedList.recipes.slice());
+    // this.selectedList.recipes[index] = newRecipe;
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
   deleteRecipe(index: number) {
-    this.selectedList.recipes.splice(index, 1);
-    this.recipesChanged.next(this.selectedList.recipes.slice());
+    // this.selectedList.recipes.splice(index, 1);
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 }
