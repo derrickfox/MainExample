@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
@@ -15,7 +17,8 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(private listsService: ListsService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -24,7 +27,7 @@ export class RecipeDetailComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.recipe = this.listsService.getRecipe(this.id);
-          console.log('this.route.url:', this.route.url);
+          console.log('ngOnInit() -> recipe-detail');
         }
       );
   }
