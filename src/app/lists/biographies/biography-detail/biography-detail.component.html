@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-xs-12">
+      <img [src]="biography.imagePath" alt="{{ biography.name }}" class="img-responsive" style="max-height: 300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ biography.name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group" appDropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle">
+          Manage Biography <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
+          <li><a style="cursor: pointer;" (click)="onEditBiography()">Edit Biography</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteBiography()">Delete Biography</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ biography.description }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <!-- <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients" (click)="onClick()">
+          {{ ingredient.name }} - {{ ingredient.amount }}
+        </li> -->
+      </ul>
+    </div>
+  </div>

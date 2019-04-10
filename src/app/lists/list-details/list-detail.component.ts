@@ -28,8 +28,6 @@ export class ListDetailComponent implements OnInit {
           this.id = +params['id'];
           // TODO pass entire list object as a parameter to getList, not an id number
           this.list = this.listsService.getList(this.id);
-          console.log('ngOnInit() -> list-detail');
-          console.log('this.recipe', this.recipe);
         }
       );
   }

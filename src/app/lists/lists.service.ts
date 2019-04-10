@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { List } from '../lists/list.model';
 import { Recipe } from '../lists/recipes/recipe.model';
+import { Biography } from '../lists/biographies/biography.model';
 import { Ingredient } from './recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 // import data from '../mockData.json';
@@ -13,6 +14,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class ListsService implements OnInit {
   listsChanged = new Subject<List[]>();
   recipesChanged = new Subject<Recipe[]>();
+  biographiesChanged = new Subject<Biography[]>();
 
   listSelected;
   recipeSelected;
@@ -21,60 +23,6 @@ export class ListsService implements OnInit {
 
   // listsJSON = jsonFile;
 
-
-  private lists: List[] = [
-    new List(
-      'Peter',
-      'Uptown Kitchen',
-      'https://comps.canstockphoto.com/cartoon-baby-chef-clip-art-vector_csp43994162.jpg',
-      [
-        new Recipe(
-          'Peters Pack o Peters',
-          'From list service',
-          '',
-          [
-            new Ingredient('Stuff', 4),
-            new Ingredient('Crap', 9)
-          ]
-        ),
-        new Recipe(
-          'Peters Pizza Pie',
-          'From list service',
-          '',
-          [
-            new Ingredient('Buns', 2),
-            new Ingredient('Meat', 1)
-          ]
-        )
-      ]
-    ),
-    new List(
-      'Jorge',
-      'Downtown Deli',
-      'https://previews.123rf.com/images/tachyglossus/tachyglossus1705/tachyglossus170500046/78440175-happy-cartoon-chef-vector-illustration.jpg',
-      [
-        new Recipe(
-          'Jorges Jamalaya',
-          'From list service',
-          '',
-          [
-            new Ingredient('Bark', 23),
-            new Ingredient('Dirt', 11)
-          ]
-        ),
-        new Recipe(
-          'Jorges Jerk Chicken',
-          'From list service',
-          '',
-          [
-            new Ingredient('Sky', 23),
-            new Ingredient('Watr', 11)
-          ]
-        )
-      ]
-    )
-  ];
-  
   listsJSON = {
     "lists": [
       {
@@ -156,7 +104,7 @@ export class ListsService implements OnInit {
 
   constructor(
     private slService: ShoppingListService,
-    ) { }
+  ) { }
 
   ngOnInit() {
 
@@ -169,9 +117,6 @@ export class ListsService implements OnInit {
   getList(index: number) {
     this.listSelected = this.listsJSON.lists[index];
     this.indexOfList = index;
-    console.log('getList() -> lists.service');
-    console.log('this.listSelected', this.listSelected);
-    console.log('this.indexOfList', this.indexOfList);
     return this.listSelected;
   }
 
@@ -180,18 +125,18 @@ export class ListsService implements OnInit {
   }
 
   addList(list) {
-    this.listsJSON.lists.push(list);
-    this.listsChanged.next(this.lists.slice());
+    // this.listsJSON.lists.push(list);
+    // this.listsChanged.next(this.lists.slice());
   }
 
   updateList(index: number, newList) {
-    this.listsJSON.lists[index] = newList;
-    this.listsChanged.next(this.lists.slice());
+    // this.listsJSON.lists[index] = newList;
+    // this.listsChanged.next(this.lists.slice());
   }
 
   deleteList(index: number) {
-    this.lists.splice(index, 1);
-    this.listsChanged.next(this.lists.slice());
+    // this.lists.splice(index, 1);
+    // this.listsChanged.next(this.lists.slice());
   }
 
   getRecipes(index) {
@@ -200,8 +145,6 @@ export class ListsService implements OnInit {
 
   getRecipe(index: number) {
     this.recipeSelected = this.listsJSON.lists[this.indexOfList].recipes[index];
-    // TODO this is a bug, do not use index in two different places at the same time
-    // return this.listsJSON.lists[index].recipes[index];
     return this.recipeSelected;
   }
 
@@ -218,5 +161,17 @@ export class ListsService implements OnInit {
   deleteRecipe(index: number) {
     // this.selectedList.recipes.splice(index, 1);
     // this.recipesChanged.next(this.selectedList.recipes.slice());
+  }
+
+  deleteBiography(index: number) {
+
+  }
+
+  getBiographies(index: number) {
+
+  }
+
+  getBiography(index: number) {
+    
   }
 }

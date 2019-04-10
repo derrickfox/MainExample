@@ -5,18 +5,29 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+
 import { RecipesComponent } from './lists/recipes/recipes.component';
 import { RecipeListComponent } from './lists/recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './lists/recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './lists/recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipeStartComponent } from './lists/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './lists/recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './lists/recipes/recipe.service';
+
+import { BiographiesComponent } from './lists/biographies/biographies.component';
+import { BiographyListComponent } from './lists/biographies/biography-list/biography-list.component';
+import { BiographyDetailComponent } from './lists/biographies/biography-detail/biography-detail.component';
+import { BiographyItemComponent } from './lists/biographies/biography-list/biography-item/biography-item.component';
+import { BiographyStartComponent } from './lists/biographies/biography-start/biography-start.component';
+import { BiographyEditComponent } from './lists/biographies/biography-edit/biography-edit.component';
+import { BiographyService } from './lists/biographies/biography.service';
+
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeStartComponent } from './lists/recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './lists/recipes/recipe-edit/recipe-edit.component';
-import { RecipeService } from './lists/recipes/recipe.service';
+
 import { ListsComponent } from './lists/lists.component';
 import { ListsService } from './lists/lists.service';
 import { ListDetailComponent } from './lists/list-details/list-detail.component';
@@ -34,21 +45,34 @@ import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
+
     ListsComponent,
     ListDetailComponent,
     ListEditComponent,
     ListListComponent,
     ListStartComponent,
     ListItemComponent,
+
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,    
+
+    BiographiesComponent,
+    BiographyListComponent,
+    BiographyDetailComponent,
+    BiographyItemComponent,
+    BiographyStartComponent,
+    BiographyEditComponent,
+
+
+    ShoppingListComponent,
+    ShoppingEditComponent,
+
+    DropdownDirective,
+
     IngredientsComponent,
     IngredientDetailComponent,
     IngredientEditComponent,
@@ -62,7 +86,7 @@ import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService, RecipeService, ListsService],
+  providers: [ShoppingListService, RecipeService, BiographyService, ListsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
