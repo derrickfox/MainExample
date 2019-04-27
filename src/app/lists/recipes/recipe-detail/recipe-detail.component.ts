@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
 import { ListsService } from '../../lists.service';
+import { MongoItemService } from '../../../../mongo.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -14,11 +15,13 @@ import { ListsService } from '../../lists.service';
 export class RecipeDetailComponent implements OnInit {
   recipe;
   id: number;
+  response;
 
   constructor(private listsService: ListsService,
               private route: ActivatedRoute,
               private router: Router,
-              private location: Location) {
+              private location: Location,
+              private mongoItemService: MongoItemService ) {
   }
 
   ngOnInit() {
@@ -34,6 +37,8 @@ export class RecipeDetailComponent implements OnInit {
 
   onClick() {
     alert('working!!');
+    this.response = this.mongoItemService.getAllItems();
+    console.log('response', this.response);
   }
 
   // onAddToShoppingList() {

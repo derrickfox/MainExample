@@ -41,6 +41,9 @@ import { IngredientEditComponent } from './lists/recipes/ingredients/ingredient-
 import { IngredientListComponent } from './lists/recipes/ingredients/ingredient-list/ingredient-list.component';
 import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient-start/ingredient-start.component';
 
+import { MongoItemService } from '../mongo.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,16 +80,19 @@ import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient
     IngredientDetailComponent,
     IngredientEditComponent,
     IngredientListComponent,
-    IngredientStartComponent
+    IngredientStartComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService, BiographyService, ListsService],
+  providers: [ShoppingListService, RecipeService, BiographyService, ListsService, MongoItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
