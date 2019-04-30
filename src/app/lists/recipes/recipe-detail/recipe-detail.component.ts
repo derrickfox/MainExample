@@ -16,6 +16,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe;
   id: number;
   response;
+  dataResponse;
 
   constructor(private listsService: ListsService,
               private route: ActivatedRoute,
@@ -36,9 +37,13 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onClick() {
-    alert('working!!');
+    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
     this.response = this.mongoItemService.getAllItems();
-    console.log('response', this.response);
+    this.response.subscribe(
+      (data) => {
+        console.log('data', data);
+      }
+    )
   }
 
   // onAddToShoppingList() {
