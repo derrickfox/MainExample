@@ -43,6 +43,12 @@ import { IngredientStartComponent } from './lists/recipes/ingredients/ingredient
 
 import { MongoItemService } from '../mongo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SourcesComponent } from './lists/sources/sources.component';
+import { SourceDetailComponent } from './lists/sources/source-detail/source-detail.component';
+import { SourceEditComponent } from './lists/sources/source-edit/source-edit.component';
+import { SourceListComponent } from './lists/sources/source-list/source-list.component';
+import { SourceStartComponent } from './lists/sources/source-start/source-start.component';
+import { SourceItemComponent } from './lists/sources/source-list/source-item/source-item.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +87,12 @@ import { HttpClientModule } from '@angular/common/http';
     IngredientEditComponent,
     IngredientListComponent,
     IngredientStartComponent,
+    SourcesComponent,
+    SourceDetailComponent,
+    SourceEditComponent,
+    SourceListComponent,
+    SourceStartComponent,
+    SourceItemComponent,
 
   ],
   imports: [

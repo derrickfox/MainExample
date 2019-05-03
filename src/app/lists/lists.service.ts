@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { List } from '../lists/list.model';
 import { Recipe } from '../lists/recipes/recipe.model';
+import { Source } from '../lists/sources/source.model';
 import { Biography } from '../lists/biographies/biography.model';
 import { Ingredient } from './recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
@@ -15,9 +16,11 @@ export class ListsService implements OnInit {
   listsChanged = new Subject<List[]>();
   recipesChanged = new Subject<Recipe[]>();
   biographiesChanged = new Subject<Biography[]>();
+  sourcesChanged = new Subject<Source[]>();
 
   listSelected;
   recipeSelected;
+  resourceSelected;
   indexOfList;
   indexOfRecipe;
 
@@ -30,6 +33,38 @@ export class ListsService implements OnInit {
         "description": "List of recipes",
         "image": "some image",
         "recipes": [
+          {
+            "name": "Banana Bread",
+            "description": "A banana cake disguised as bread.",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Banana",
+                "amount": 4
+              },
+              {
+                "name": "Bread",
+                "amount": 8
+              }
+            ]
+          },
+          {
+            "name": "Steak",
+            "description": "Diced cow.",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "Cow",
+                "amount": 1
+              },
+              {
+                "name": "Plate",
+                "amount": 1
+              }
+            ]
+          }
+        ],
+        "sources": [
           {
             "name": "Banana Bread",
             "description": "A banana cake disguised as bread.",
@@ -94,6 +129,35 @@ export class ListsService implements OnInit {
               {
                 "name": "Animal Farm",
                 "amount": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sources",
+        "description": "Description dave",
+        "image": "some image dave",
+        "recipes": [
+          {
+            "name": "Unemployement Statistics",
+            "description": "Statitics about US unemployement",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "US Statistics Stuff",
+                "amount": 6
+              }
+            ]
+          },
+          {
+            "name": "Housing Statistics",
+            "description": "Data on US housing",
+            "image": "some other image",
+            "ingredients": [
+              {
+                "name": "HUD Website",
+                "amount": 1
               }
             ]
           }
@@ -174,4 +238,30 @@ export class ListsService implements OnInit {
   getBiography(index: number) {
     
   }
+
+  getSources(index) {
+    console.log(this.listsJSON.lists[index].sources.slice());
+    return this.listsJSON.lists[index].sources.slice();
+  }
+
+  getSource(index: number) {
+    this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
+    return this.resourceSelected;
+  }
+
+  addSource(source: Source) {
+    // this.selectedList.recipes.push(recipe);
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
+  }
+
+  updateSource(index: number, newSource: Source) {
+    // this.selectedList.recipes[index] = newRecipe;
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
+  }
+
+  deleteSource(index: number) {
+    // this.selectedList.recipes.splice(index, 1);
+    // this.recipesChanged.next(this.selectedList.recipes.slice());
+  }
+
 }
