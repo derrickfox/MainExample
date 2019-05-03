@@ -10,28 +10,32 @@ interface MongoItem {
 export class MongoItemService {
   constructor(private http: HttpClient) {}
 
-  getAllItems(): Observable<MongoItem[]> {
+  getAllProducts(): Observable<MongoItem[]> {
     return this.http.get<MongoItem[]>('http://localhost:1234/products/list')
   }
 
   // TODO replace name with id
-  getItem(name: string): Observable<MongoItem> {
+  getProduct(name: string): Observable<MongoItem> {
     return this.http.get<MongoItem>('http://localhost:1234/products/:id' + name)
   }
 
   // TODO change parameter
-  insertItem(item: MongoItem): Observable<MongoItem> {
-    return this.http.post<MongoItem>('http://localhost:1234/products/create', item)
+  insertProduct(product: MongoItem): Observable<MongoItem> {
+    return this.http.post<MongoItem>('http://localhost:1234/products/create', product)
   }
 
-  updateItem(item: MongoItem): Observable<void> {
+  updateProduct(product: MongoItem): Observable<void> {
     return this.http.put<void>(
-      'http://localhost:1234/products/update' + item.name,
-      item
+      'http://localhost:1234/products/update' + product.name,
+      product
     )
   }
 
-  deleteCat(name: string) {
-    return this.http.delete('http://localhost:8000/api/cats/' + name)
+  deleteProduct(name: string) {
+    return this.http.delete('http://localhost:1234/products/' + name)
+  }
+
+  getAllSources(): Observable<MongoItem[]> {
+    return this.http.get<MongoItem[]>('http://localhost:1234/sources/list')
   }
 }

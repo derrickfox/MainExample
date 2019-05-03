@@ -15,7 +15,8 @@ import { MongoItemService } from '../../../../mongo.service';
 export class RecipeDetailComponent implements OnInit {
   recipe;
   id: number;
-  response;
+  responseProducts;
+  responseSources;
   dataResponse;
 
   constructor(private listsService: ListsService,
@@ -36,10 +37,20 @@ export class RecipeDetailComponent implements OnInit {
       );
   }
 
-  onClick() {
+  onClickProducts() {
     // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.response = this.mongoItemService.getAllItems();
-    this.response.subscribe(
+    this.responseProducts = this.mongoItemService.getAllProducts();
+    this.responseProducts.subscribe(
+      (data) => {
+        console.log('data', data);
+      }
+    )
+  }
+
+  onClickSources() {
+    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
+    this.responseSources = this.mongoItemService.getAllSources();
+    this.responseSources.subscribe(
       (data) => {
         console.log('data', data);
       }
