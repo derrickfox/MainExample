@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListsService } from './lists.service';
 
 @Component({
   selector: 'app-lists',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+  listOfLists = [];
+
+  constructor(private listsService: ListsService) { }
 
   ngOnInit() {
+    this.getListOfLists();
+  }
+
+  getListOfLists() {
+    this.listOfLists = this.listsService.getLists();
+    console.log('this.listOfLists', this.listOfLists);
   }
 
 }
