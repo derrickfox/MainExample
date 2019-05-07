@@ -49,7 +49,7 @@ export class RecipeDetailComponent implements OnInit {
 
   onClickSources() {
     // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.responseSources = this.mongoItemService.getAllSources();
+    this.responseSources = this.mongoItemService.getRecipe('5ccb824909b41a3660d0e0a1');
     this.responseSources.subscribe(
       (data) => {
         console.log('data', data);

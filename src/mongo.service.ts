@@ -38,4 +38,8 @@ export class MongoItemService {
   getAllSources(): Observable<MongoItem[]> {
     return this.http.get<MongoItem[]>('http://localhost:1234/sources/list')
   }
+
+  getRecipe(id: string): Observable<MongoItem> {
+    return this.http.get<MongoItem>('http://localhost:1234/sources/' + id)
+  }
 }
