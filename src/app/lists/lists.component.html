@@ -41,7 +41,18 @@
           style="max-height: 50px;">
       </span>
     </a>
-    <a style="cursor: pointer;" [routerLink]="recipes" class="list-group-item clearfix">Recipes List Test Route</a>
+
+    <a style="cursor: pointer;" routerLink="recipes" class="list-group-item clearfix">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">Test Router</h4>
+          <p class="list-group-item-text">Testing</p>
+        </div>
+        <span class="pull-right">
+          <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
+            style="max-height: 50px;">
+        </span>
+      </a>
+
   </div>
   <div class="col-md-8">
     <router-outlet></router-outlet>

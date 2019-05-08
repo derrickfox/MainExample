@@ -32,7 +32,6 @@ export class RecipeDetailComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.recipe = this.listsService.getRecipe(this.id);
-          console.log('ngOnInit() -> recipe-detail');
         }
       );
   }
@@ -45,11 +44,21 @@ export class RecipeDetailComponent implements OnInit {
         console.log('data', data);
       }
     )
-  }
-
+  }  
+  
   onClickSources() {
     // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.responseSources = this.mongoItemService.getRecipe('5ccb824909b41a3660d0e0a1');
+    this.responseSources = this.mongoItemService.getAllSource();
+    this.responseSources.subscribe(
+      (data) => {
+        console.log('data', data);
+      }
+    )
+  }
+
+  onClickSource() {
+    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
+    this.responseSources = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
     this.responseSources.subscribe(
       (data) => {
         console.log('data', data);

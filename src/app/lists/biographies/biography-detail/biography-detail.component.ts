@@ -26,7 +26,6 @@ export class BiographyDetailComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.biography = this.listsService.getBiography(this.id);
-          console.log('ngOnInit() -> biography-detail');
         }
       );
   }

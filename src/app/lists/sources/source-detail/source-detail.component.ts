@@ -26,13 +26,8 @@ export class SourceDetailComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.source = this.listsService.getSource(this.id);
-          console.log('ngOnInit() -> source-detail');
         }
       );
-  }
-
-  onClick() {
-    alert('working!!');
   }
 
   // onAddToShoppingList() {

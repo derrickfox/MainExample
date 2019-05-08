@@ -18,7 +18,6 @@ export class ListsComponent implements OnInit {
 
   getListOfLists() {
     this.listOfLists = this.listsService.getLists();
-    console.log('this.listOfLists', this.listOfLists);
   }
 
 }
