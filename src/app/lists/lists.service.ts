@@ -240,7 +240,6 @@ export class ListsService implements OnInit {
   }
 
   getSources(index) {
-    console.log(this.listsJSON.lists[index].sources.slice());
     return this.listsJSON.lists[index].sources.slice();
   }
 

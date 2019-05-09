@@ -2,7 +2,15 @@
 <h3>Search: <input></h3>
 <div class="row">
   <div class="col-xs-6">
-    <app-recipe-item *ngFor="let recipeEl of list.recipes; let i = index" [recipe]="recipeEl" [index]="i"></app-recipe-item>
+    <button (click)="onClickSource()">Get Source</button><br>
+    <button (click)="onClickSources()">Get Sources</button>
+    <div *ngFor="let response of responseList">
+        <a>{{response._id}}</a>
+    </div>
+    <div *ngFor="let response of responseList">
+      <app-list-item [list]="response"></app-list-item>
+    </div>
+    <!-- <app-recipe-item *ngFor="let recipeEl of list.recipes; let i = index" [recipe]="recipeEl" [index]="i"></app-recipe-item> -->
   </div>
   <div class="col-xs-6">
     <router-outlet></router-outlet>

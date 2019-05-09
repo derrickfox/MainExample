@@ -21,9 +21,8 @@ const appRoutes: Routes = [
       { path: 'new', component: ListEditComponent },
       { path: ':id/edit', component: ListEditComponent },
       { path: 'recipe/:id', component: RecipeDetailComponent },
-      { path: 'recipes', component: RecipeListComponent },
-      {
-        path: ':id', component: ListDetailComponent, children: [
+      { path: 'recipes', component: ListDetailComponent },
+      { path: ':id', component: ListDetailComponent, children: [
           { path: ':id', component: RecipeDetailComponent },
           { path: 'recipes', component: RecipeListComponent },
           { path: 'recipe/:id', component: RecipeDetailComponent },

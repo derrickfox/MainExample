@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { List } from '../list.model';
 import { ListsService } from '../lists.service';
+import { MongoItemService } from '../../../mongo.service';
 
 @Component({
   selector: 'app-list-detail',
@@ -14,11 +15,14 @@ export class ListDetailComponent implements OnInit {
   list;
   id: number;
   recipe;
+  responseSources;
+  responseList;
 
   constructor(private listsService: ListsService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location) {
+    private location: Location,
+    private mongoItemService: MongoItemService) {
 }
 
   ngOnInit() {
@@ -30,6 +34,7 @@ export class ListDetailComponent implements OnInit {
           this.list = this.listsService.getList(this.id);
         }
       );
+      this.onClickSources();
   }
 
   onEditList() {
@@ -40,6 +45,26 @@ export class ListDetailComponent implements OnInit {
   onDeleteList() {
     this.listsService.deleteList(this.id);
     this.router.navigate(['/lists']);
+  }
+
+  async onClickSources() {
+    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
+    this.responseSources = this.mongoItemService.getAllSource();
+    this.responseSources.subscribe((data) => {
+        this.responseList = data;
+        console.log('this.responseList', this.responseList);
+      }
+    )
+  }
+
+  onClickSource() {
+    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
+    this.responseSources = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
+    this.responseSources.subscribe(
+      (data) => {
+        console.log('data', data);
+      }
+    )
   }
 
 }
