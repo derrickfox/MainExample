@@ -8,6 +8,7 @@ import { Biography } from '../lists/biographies/biography.model';
 import { Ingredient } from './recipes/ingredients/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 // import data from '../mockData.json';
+import { MongoItemService } from '../../mongo.service';
 
 // const jsonFile = (<any>data);
 
@@ -168,6 +169,7 @@ export class ListsService implements OnInit {
 
   constructor(
     private slService: ShoppingListService,
+    private mongoItemService: MongoItemService
   ) { }
 
   ngOnInit() {
@@ -243,9 +245,16 @@ export class ListsService implements OnInit {
     return this.listsJSON.lists[index].sources.slice();
   }
 
-  getSource(index: number) {
-    this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
-    return this.resourceSelected;
+  getSource(id: number) {
+    // this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
+    // return this.resourceSelected;
+    this.resourceSelected = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
+    this.resourceSelected.subscribe(
+      (data) => {
+        console.log('data', data);
+        console.log('list-detail.component -> this.id', id);
+      }
+    )
   }
 
   addSource(source: Source) {

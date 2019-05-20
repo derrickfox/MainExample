@@ -13,6 +13,10 @@ import { ListEditComponent } from './lists/list-edit/list-edit.component';
 import { ListStartComponent } from './lists/list-start/list-start.component';
 import { RecipeListComponent } from './lists/recipes/recipe-list/recipe-list.component';
 
+import { SourceDetailComponent } from './lists/sources/source-detail/source-detail.component';
+import { SourceListComponent } from './lists/sources/source-list/source-list.component';
+import { SourceEditComponent } from './lists/sources/source-edit/source-edit.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
   {
@@ -22,6 +26,14 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ListEditComponent },
       { path: 'recipe/:id', component: RecipeDetailComponent },
       { path: 'recipes', component: ListDetailComponent },
+      // { path: 'sources', component: ListDetailComponent },
+      { path: 'sources', component: ListDetailComponent, children: [
+          { path: ':id', component: SourceDetailComponent },
+          { path: 'recipes', component: SourceListComponent },
+          { path: 'recipe/:id', component: SourceDetailComponent },
+          { path: ':id/edit', component: SourceEditComponent }
+        ]
+      },
       { path: ':id', component: ListDetailComponent, children: [
           { path: ':id', component: RecipeDetailComponent },
           { path: 'recipes', component: RecipeListComponent },
