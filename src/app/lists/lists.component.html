@@ -44,8 +44,8 @@
 
     <a style="cursor: pointer;" routerLink="recipes" class="list-group-item clearfix">
         <div class="pull-left">
-          <h4 class="list-group-item-heading">Test Router</h4>
-          <p class="list-group-item-text">Testing</p>
+          <h4 class="list-group-item-heading">Recipes Router</h4>
+          <p class="list-group-item-text">Recipes</p>
         </div>
         <span class="pull-right">
           <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
@@ -53,6 +53,16 @@
         </span>
       </a>
 
+      <a style="cursor: pointer;" routerLink="sources" class="list-group-item clearfix">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">Sources Router</h4>
+          <p class="list-group-item-text">Sources</p>
+        </div>
+        <span class="pull-right">
+          <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
+            style="max-height: 50px;">
+        </span>
+      </a>
   </div>
   <div class="col-md-8">
     <router-outlet></router-outlet>

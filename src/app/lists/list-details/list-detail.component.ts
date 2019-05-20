@@ -63,6 +63,7 @@ export class ListDetailComponent implements OnInit {
     this.responseSources.subscribe(
       (data) => {
         console.log('data', data);
+        console.log('list-detail.component -> this.id', this.id);
       }
     )
   }
