@@ -245,14 +245,13 @@ export class ListsService implements OnInit {
     return this.listsJSON.lists[index].sources.slice();
   }
 
-  getSource(id: number) {
+  getSource(id: string) {
     // this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
     // return this.resourceSelected;
-    this.resourceSelected = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
+    this.resourceSelected = this.mongoItemService.getSource(id);
     this.resourceSelected.subscribe(
       (data) => {
-        console.log('data', data);
-        console.log('list-detail.component -> this.id', id);
+        
       }
     )
   }
@@ -267,7 +266,7 @@ export class ListsService implements OnInit {
     // this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
-  deleteSource(index: number) {
+  deleteSource(index: string) {
     // this.selectedList.recipes.splice(index, 1);
     // this.recipesChanged.next(this.selectedList.recipes.slice());
   }

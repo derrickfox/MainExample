@@ -29,12 +29,11 @@ export class ListDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
-          // TODO pass entire list object as a parameter to getList, not an id number
-          this.list = this.listsService.getList(this.id);
+          // this.id = +params['id'];
+          // this.list = this.listsService.getList(this.id);
         }
       );
-      this.onClickSources();
+      this.initializeSources();
   }
 
   onEditList() {
@@ -47,23 +46,11 @@ export class ListDetailComponent implements OnInit {
     this.router.navigate(['/lists']);
   }
 
-  async onClickSources() {
+  initializeSources() {
     // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.responseSources = this.mongoItemService.getAllSource();
+    this.responseSources = this.mongoItemService.getAllSources();
     this.responseSources.subscribe((data) => {
         this.responseList = data;
-        console.log('this.responseList', this.responseList);
-      }
-    )
-  }
-
-  onClickSource() {
-    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.responseSources = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
-    this.responseSources.subscribe(
-      (data) => {
-        console.log('data', data);
-        console.log('list-detail.component -> this.id', this.id);
       }
     )
   }
