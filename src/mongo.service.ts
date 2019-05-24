@@ -35,7 +35,7 @@ export class MongoItemService {
     return this.http.delete('http://localhost:1234/products/' + name)
   }
 
-  getAllSource(): Observable<MongoItem[]> {
+  getAllSources(): Observable<MongoItem[]> {
     return this.http.get<MongoItem[]>('http://localhost:1234/sources/list')
   }
 

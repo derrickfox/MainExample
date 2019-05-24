@@ -15,7 +15,7 @@ import { MongoItemService } from '../../../../mongo.service';
 export class SourceDetailComponent implements OnInit {
   source;
   response;
-  id: number;
+  id: string;
 
   constructor(private listsService: ListsService,
     private route: ActivatedRoute,
@@ -25,20 +25,19 @@ export class SourceDetailComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    // this.route.params
-    //   .subscribe(
-    //     (params: Params) => {
-    //       this.id = +params['id'];
-    //       this.source = this.listsService.getSource(this.id);
-    //     }
-    //   );
-    this.response = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
-    this.response.subscribe(
+  async ngOnInit() {
+    await this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+        }
+      );
+    this.response = await this.mongoItemService.getSource(this.id);
+    await this.response.subscribe(
       (data) => {
-        console.log('data', data);
-        console.log('list-detail.component -> this.id', this.id);
         this.source = data;
+        console.log('data', data);
+        this.source.name = data.name;
       }
     )
   }

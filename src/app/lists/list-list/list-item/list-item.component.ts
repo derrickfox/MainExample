@@ -18,15 +18,12 @@ export class ListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('this.list', this.list);
   }
 
   testClick() {
-    console.log('CLIKED!');
   }
 
   toItem(input) {
-    console.log('toItem! -> input', input);
     this.router.navigate([input], { relativeTo: this.route });
   }
 }

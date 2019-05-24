@@ -41,31 +41,10 @@ export class RecipeDetailComponent implements OnInit {
     this.responseProducts = this.mongoItemService.getAllProducts();
     this.responseProducts.subscribe(
       (data) => {
-        console.log('data', data);
+        
       }
     )
   }  
-  
-  onClickSources() {
-    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    this.responseSources = this.mongoItemService.getAllSource();
-    this.responseSources.subscribe(
-      (data) => {
-        console.log('data', data);
-      }
-    )
-  }
-
-  onClickSource() {
-    // !!!! If you receive a CORS error, install a CORS browser extention to handle the error locally !!!
-    console.log('recipe-detail.component -> this.id', this.id);
-    this.responseSources = this.mongoItemService.getSource('5ccb824909b41a3660d0e0a1');
-    this.responseSources.subscribe(
-      (data) => {
-        console.log('data', data);
-      }
-    )
-  }
 
   // onAddToShoppingList() {
   //   this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
