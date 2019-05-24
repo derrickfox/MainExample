@@ -26,7 +26,6 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ListEditComponent },
       { path: 'recipe/:id', component: RecipeDetailComponent },
       { path: 'recipes', component: ListDetailComponent },
-      // { path: 'sources', component: ListDetailComponent },
       { path: 'sources', component: ListDetailComponent, children: [
           { path: ':id', component: SourceDetailComponent },
           { path: 'recipes', component: SourceListComponent },

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { List } from '../../list.model';
 

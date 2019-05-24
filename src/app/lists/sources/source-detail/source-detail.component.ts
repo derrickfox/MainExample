@@ -25,15 +25,15 @@ export class SourceDetailComponent implements OnInit {
 
   }
 
-  async ngOnInit() {
-    await this.route.params
+  ngOnInit() {
+    this.route.params
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
         }
       );
-    this.response = await this.mongoItemService.getSource(this.id);
-    await this.response.subscribe(
+    this.response = this.mongoItemService.getSource(this.id);
+    this.response.subscribe(
       (data) => {
         this.source = data;
         console.log('data', data);
