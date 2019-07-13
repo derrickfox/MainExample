@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { Source } from './source.model';
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 
 @Injectable()
 export class SourceService {
@@ -28,7 +27,7 @@ export class SourceService {
 //       ])
 //   ];
 
-  constructor(private slService: ShoppingListService) { }
+  constructor() { }
 
   getSources() {
     return this.sources.slice();

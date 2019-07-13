@@ -2,11 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { List } from '../lists/list.model';
-import { Recipe } from '../lists/recipes/recipe.model';
 import { Source } from '../lists/sources/source.model';
-import { Biography } from '../lists/biographies/biography.model';
-import { Ingredient } from './recipes/ingredients/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 // import data from '../mockData.json';
 import { MongoItemService } from '../../mongo.service';
 
@@ -15,8 +11,6 @@ import { MongoItemService } from '../../mongo.service';
 @Injectable()
 export class ListsService implements OnInit {
   listsChanged = new Subject<List[]>();
-  recipesChanged = new Subject<Recipe[]>();
-  biographiesChanged = new Subject<Biography[]>();
   sourcesChanged = new Subject<Source[]>();
 
   listSelected;
@@ -168,7 +162,6 @@ export class ListsService implements OnInit {
   }
 
   constructor(
-    private slService: ShoppingListService,
     private mongoItemService: MongoItemService
   ) { }
 
@@ -184,10 +177,6 @@ export class ListsService implements OnInit {
     this.listSelected = this.listsJSON.lists[index];
     this.indexOfList = index;
     return this.listSelected;
-  }
-
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
   }
 
   addList(list) {
@@ -212,16 +201,6 @@ export class ListsService implements OnInit {
   getRecipe(index: number) {
     this.recipeSelected = this.listsJSON.lists[this.indexOfList].recipes[index];
     return this.recipeSelected;
-  }
-
-  addRecipe(recipe: Recipe) {
-    // this.selectedList.recipes.push(recipe);
-    // this.recipesChanged.next(this.selectedList.recipes.slice());
-  }
-
-  updateRecipe(index: number, newRecipe: Recipe) {
-    // this.selectedList.recipes[index] = newRecipe;
-    // this.recipesChanged.next(this.selectedList.recipes.slice());
   }
 
   deleteRecipe(index: number) {
