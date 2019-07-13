@@ -26,7 +26,7 @@ export class ListListComponent implements OnInit, OnDestroy {
           this.lists = lists;
         }
       );
-    this.lists = this.listsService.getLists();
+    // this.lists = this.listsService.getLists();
   }
 
   onNewList() {

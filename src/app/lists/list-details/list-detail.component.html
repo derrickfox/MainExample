@@ -1,13 +1,15 @@
-<h2>list-detail.component</h2>
-<h3>Search: <input></h3>
-<div class="row">
-  <div class="col-xs-6">
-    <div *ngFor="let response of responseList">
-      <app-list-item [list]="response"></app-list-item>
+<div style="border: 1px solid red;">
+  <h2>list-detail.component</h2>
+  <h3>Search: <input></h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <div *ngFor="let response of responseList">
+        <app-list-item [list]="response"></app-list-item>
+      </div>
+      <!-- <app-recipe-item *ngFor="let recipeEl of list.recipes; let i = index" [recipe]="recipeEl" [index]="i"></app-recipe-item> -->
     </div>
-    <!-- <app-recipe-item *ngFor="let recipeEl of list.recipes; let i = index" [recipe]="recipeEl" [index]="i"></app-recipe-item> -->
-  </div>
-  <div class="col-xs-6">
-    <router-outlet></router-outlet>
+    <div class="col-xs-6">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

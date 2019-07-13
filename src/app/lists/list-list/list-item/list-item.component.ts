@@ -24,6 +24,6 @@ export class ListItemComponent implements OnInit {
   }
 
   toItem(input) {
-    this.router.navigate([input], { relativeTo: this.route });
+    // this.router.navigate([input], { relativeTo: this.route });
   }
 }

@@ -1,27 +1,29 @@
-<h2>lists.component</h2>
+<div style="border: 1px solid blue;">
+  <h2>lists.component</h2>
 
-<div class="row">
-  <div class="col-md-4">
-
-    <!-- <app-list-list></app-list-list> -->
-
-    <!-- <div  *ngFor="let item of listOfLists;">
-      <h1>{{item.name}}</h1>
-    </div> -->
-
-      <a style="cursor: pointer;" routerLink="sources" class="list-group-item clearfix">
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">Sources List</h4>
-          <p class="list-group-item-text">Sources</p>
-        </div>
-        <span class="pull-right">
-          <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
-            style="max-height: 50px;">
-        </span>
-      </a>
-
-  </div>
-  <div class="col-md-8">
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-4">
+  
+      <!-- <app-list-list></app-list-list> -->
+  
+      <!-- <div  *ngFor="let item of listOfLists;">
+        <h1>{{item.name}}</h1>
+      </div> -->
+  
+        <a style="cursor: pointer;" routerLink="sources" class="list-group-item clearfix">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">Sources List</h4>
+            <p class="list-group-item-text">Sources</p>
+          </div>
+          <span class="pull-right">
+            <!-- <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
+              style="max-height: 50px;"> -->
+          </span>
+        </a>
+  
+    </div>
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
