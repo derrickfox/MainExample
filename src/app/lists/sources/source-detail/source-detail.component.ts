@@ -36,10 +36,11 @@ export class SourceDetailComponent implements OnInit {
     await this.response.subscribe(
       (data) => {
         this.source = data;
-        console.log('data', data);
+        console.log('source-detail -> ngOnInit()', data);
         this.source.name = data.name;
       }
     )
+    console.log('source-detail -> ngOnInit()');
   }
 
   // onAddToShoppingList() {

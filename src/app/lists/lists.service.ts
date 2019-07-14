@@ -230,7 +230,7 @@ export class ListsService implements OnInit {
     this.resourceSelected = this.mongoItemService.getSource(id);
     this.resourceSelected.subscribe(
       (data) => {
-        
+        console.log('getSource')
       }
     )
   }
