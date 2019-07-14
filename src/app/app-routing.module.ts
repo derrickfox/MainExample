@@ -9,6 +9,7 @@ import { ListStartComponent } from './lists/list-start/list-start.component';
 import { SourceDetailComponent } from './lists/sources/source-detail/source-detail.component';
 import { SourceListComponent } from './lists/sources/source-list/source-list.component';
 import { SourceEditComponent } from './lists/sources/source-edit/source-edit.component';
+import { ListItemComponent } from './lists/list-list/list-item/list-item.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },

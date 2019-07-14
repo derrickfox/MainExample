@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { MongoItemService } from '../../../../mongo.service';
 
 import { List } from "../../list.model";
+import { Source } from "../../sources/source.model";
 
 @Component({
   selector: "app-list-item",
@@ -12,8 +13,8 @@ import { List } from "../../list.model";
 export class ListItemComponent implements OnInit {
   @Input() list: List;
   @Input() index: number;
+  @Output() source: Source;
   response;
-  source;
 
   constructor(private route: ActivatedRoute, private router: Router, private mongoItemService: MongoItemService) {}
 
@@ -32,5 +33,6 @@ export class ListItemComponent implements OnInit {
       console.log("list-item -> toItem(input)", data);
       this.source.name = data.name;
     });
+    console.log("list-item -> toItem(input) -> source", this.source);
   }
 }
