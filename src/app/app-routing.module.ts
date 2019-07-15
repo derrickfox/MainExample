@@ -19,16 +19,10 @@ const appRoutes: Routes = [
       { path: '', component: ListStartComponent },
       { path: 'new', component: ListEditComponent },
       { path: ':id/edit', component: ListEditComponent },
-      { path: 'recipes', component: ListDetailComponent },
-      // { path: 'sources', component: ListDetailComponent },
       { path: 'sources', component: ListListComponent, children: [
-          { path: ':id', component: ListItemComponent },
-          { path: 'recipes', component: SourceListComponent },
-          { path: 'recipe/:id', component: SourceDetailComponent },
+          { path: '', component: ListStartComponent },
+          { path: ':id', component: ListDetailComponent },
           { path: ':id/edit', component: SourceEditComponent }
-        ]
-      },
-      { path: ':id', component: ListDetailComponent, children: [
         ]
       }
     ]
