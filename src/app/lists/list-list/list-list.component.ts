@@ -25,7 +25,9 @@ export class ListListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('list-list -> ngOnInit()');
-    // this.lists = this.listsService.getAllSources();
+    this.listsService.getAllSources().subscribe((lists: List[]) => {
+      this.lists = lists;
+    })
     console.log('list-list -> ngOnInit() 1-> this.lists', this.lists);
     // this.getSources();
     console.log('list-list -> ngOnInit() 2-> this.lists', this.lists);
