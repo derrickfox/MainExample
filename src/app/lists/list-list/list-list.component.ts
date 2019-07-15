@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { List } from '../list.model';
 import { ListsService } from '../lists.service';
+
+import { MongoItemService } from '../../../mongo.service';
 
 @Component({
   selector: 'app-list-list',
@@ -11,22 +13,34 @@ import { ListsService } from '../lists.service';
   styleUrls: ['./list-list.component.css']
 })
 export class ListListComponent implements OnInit, OnDestroy {
-  lists;
+  @Input() list: List;
+  lists = [{ name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'}, {name: 'dafdad', description:'kjl;ad', imagePath: 'ddaaff'}]
   subscription: Subscription;
 
   constructor(private listsService: ListsService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private mongoItemService: MongoItemService) {
   }
 
   ngOnInit() {
-    this.subscription = this.listsService.listsChanged
-      .subscribe(
-        (lists: List[]) => {
-          this.lists = lists;
-        }
-      );
-    // this.lists = this.listsService.getLists();
+    console.log('list-list -> ngOnInit()');
+    // this.lists = this.listsService.getAllSources();
+    console.log('list-list -> ngOnInit() 1-> this.lists', this.lists);
+    // this.getSources();
+    console.log('list-list -> ngOnInit() 2-> this.lists', this.lists);
+    // this.subscription = this.listsService.listsChanged
+    //   .subscribe  (
+    //     (lists: List[]) => {
+    //       this.lists = this.listsService.getAllSources();
+    //       console.log('list-list -> ngOnInit() -> subscribe() -> this.lists', this.lists);
+    //     }
+    //   );
+  }
+
+  async getSources() {
+    this.lists = await this.listsService.getAllSources();
+    console.log('this.lists', this.lists);
   }
 
   onNewList() {

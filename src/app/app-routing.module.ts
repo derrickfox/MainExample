@@ -10,6 +10,7 @@ import { SourceDetailComponent } from './lists/sources/source-detail/source-deta
 import { SourceListComponent } from './lists/sources/source-list/source-list.component';
 import { SourceEditComponent } from './lists/sources/source-edit/source-edit.component';
 import { ListItemComponent } from './lists/list-list/list-item/list-item.component';
+import { ListListComponent } from './lists/list-list/list-list.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
@@ -20,8 +21,8 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ListEditComponent },
       { path: 'recipes', component: ListDetailComponent },
       // { path: 'sources', component: ListDetailComponent },
-      { path: 'sources', component: ListDetailComponent, children: [
-          { path: ':id', component: SourceDetailComponent },
+      { path: 'sources', component: ListListComponent, children: [
+          { path: ':id', component: ListItemComponent },
           { path: 'recipes', component: SourceListComponent },
           { path: 'recipe/:id', component: SourceDetailComponent },
           { path: ':id/edit', component: SourceEditComponent }

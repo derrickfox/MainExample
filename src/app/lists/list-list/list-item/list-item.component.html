@@ -1,8 +1,6 @@
 <div style="border: 1px solid green;">
   <h2>list-item.component</h2>
-  <h4>{{list.name}}</h4>
-  <h4 (click)="toItem(list._id)">{{list._id}}</h4>
-  <a style="cursor: pointer;" (click)="toItem(list._id)" [routerLink]="[list._id]" routerLinkActive="active" class="list-group-item clearfix">
+  <!-- <a style="cursor: pointer;" (click)="toItem(list._id)" [routerLink]="[list._id]" routerLinkActive="active" class="list-group-item clearfix">
     <div class="pull-left">
       <h4 class="list-group-item-heading">{{ list.name }}</h4>
       <p class="list-group-item-text">{{ list.description }}</p>
@@ -10,5 +8,6 @@
     <span class="pull-right">
       <img [src]="list.imagePath" alt="{{ list.name }}" class="img-responsive" style="max-height: 50px;">
     </span>
-  </a>
+  </a> -->
+  <h4>{{list.name}}</h4>
 </div>

@@ -11,15 +11,16 @@ import { Source } from "../../sources/source.model";
   styleUrls: ["./list-item.component.css"]
 })
 export class ListItemComponent implements OnInit {
-  @Input() list: List;
+  @Input() list: List
   @Input() index: number;
   @Output() source: Source;
+  lists = [{ name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'}, {name: 'dafdad', description:'kjl;ad', imagePath: 'ddaaff'}]
   response;
 
   constructor(private route: ActivatedRoute, private router: Router, private mongoItemService: MongoItemService) {}
 
   ngOnInit() {
-    console.log("The list of list has loaded");
+    console.log("list-item -> ngOnInit() -> list", this.list);
   }
 
   testClick() {}
@@ -29,10 +30,10 @@ export class ListItemComponent implements OnInit {
     // console.log('toItem()', input);
     this.response = await this.mongoItemService.getSource(input);
     await this.response.subscribe(data => {
-      this.source = data;
+      // this.source = data;
       console.log("list-item -> toItem(input)", data);
-      this.source.name = data.name;
+      // this.source.name = data.name;
     });
-    console.log("list-item -> toItem(input) -> source", this.source);
+    // console.log("list-item -> toItem(input) -> list", this.source);
   }
 }
