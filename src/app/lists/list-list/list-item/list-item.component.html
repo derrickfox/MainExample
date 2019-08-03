@@ -9,5 +9,7 @@
       <img [src]="list.imagePath" alt="{{ list.name }}" class="img-responsive" style="max-height: 50px;">
     </span>
   </a> -->
-  <h4 (click)="toItem(list._id)" [routerLink]="[list._id]">{{list.name}}</h4>
+  <h4 (click)="toItem(list)" [routerLink]="[list._id]">{{list.name}}</h4>
+  <h6>ID: {{list._id}}</h6>
 </div>
+<!-- <div *ngIf="list"><h1>{{list.name}}</h1></div> -->

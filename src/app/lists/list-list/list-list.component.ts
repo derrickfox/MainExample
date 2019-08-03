@@ -13,8 +13,10 @@ import { MongoItemService } from '../../../mongo.service';
   styleUrls: ['./list-list.component.css']
 })
 export class ListListComponent implements OnInit, OnDestroy {
-  @Input() list: List;
-  lists = [{ name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'}, {name: 'dafdad', description:'kjl;ad', imagePath: 'ddaaff'}]
+  list: List;
+  lists = [
+    { _id: '3', name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'}, 
+    { _id: '4', name: 'dafdad', description:'kjl;ad', imagePath: 'ddaaff'}]
   subscription: Subscription;
 
   constructor(private listsService: ListsService,
@@ -24,20 +26,14 @@ export class ListListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('list-list -> ngOnInit()');
     this.listsService.getAllSources().subscribe((lists: List[]) => {
       this.lists = lists;
     })
-    console.log('list-list -> ngOnInit() 1-> this.lists', this.lists);
-    // this.getSources();
-    console.log('list-list -> ngOnInit() 2-> this.lists', this.lists);
-    // this.subscription = this.listsService.listsChanged
-    //   .subscribe  (
-    //     (lists: List[]) => {
-    //       this.lists = this.listsService.getAllSources();
-    //       console.log('list-list -> ngOnInit() -> subscribe() -> this.lists', this.lists);
-    //     }
-    //   );
+  }
+
+  childEventClicked(list: List) {
+    console.log('childEventClicked!!!!!!', list);
+    this.list = list;
   }
 
   async getSources() {

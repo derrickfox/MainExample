@@ -8,7 +8,7 @@
       <hr>
       <div class="row">
         <div class="col-xs-12">
-          <app-list-item *ngFor="let listEl of lists" [list]="listEl"></app-list-item>
+          <app-list-item *ngFor="let listEl of lists" (list)="childEventClicked($list)" [list]="listEl"></app-list-item>
           <!-- <app-list-item *ngFor="let listEl of lists; let i = index" [list]="listEl" [index]="i"></app-list-item> -->
         </div>
       </div>

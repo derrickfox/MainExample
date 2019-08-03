@@ -1,4 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 
 import { List } from '../lists/list.model';
@@ -79,14 +80,17 @@ export class ListsService implements OnInit {
   }
 
   getSource(id: string) {
-    // this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
-    // return this.resourceSelected;
+    // let urlEnd = Location.joinWithSlash('sources', '');
+    // console.log('urlEnd', urlEnd);
+    let myList;
     this.resourceSelected = this.mongoItemService.getSource(id);
     this.resourceSelected.subscribe(
       (data) => {
-        console.log('getSource')
+        console.log('list.service -> getSource(id)', data);
+        myList = data;
       }
     )
+    return myList;
   }
 
   getAllSources() {

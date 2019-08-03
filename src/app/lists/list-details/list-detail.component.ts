@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params, Router, Route } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { List } from '../list.model';
 import { ListsService } from '../lists.service';
 import { MongoItemService } from '../../../mongo.service';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-list-detail',
@@ -12,28 +13,58 @@ import { MongoItemService } from '../../../mongo.service';
   styleUrls: ['./list-detail.component.css']
 })
 export class ListDetailComponent implements OnInit {
-  list;
-  id: number;
+  @Input() list: List;
+  id: string;
   recipe;
   responseSources;
   responseList;
+  response;
 
   constructor(private listsService: ListsService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private mongoItemService: MongoItemService) {
+    private mongoItemService: MongoItemService
+    ) {
+      // this.list = { _id: 'kadf', name: 'constructor name', description: 'lkfjdka', imagePath: ''}
 }
 
-  ngOnInit() {
-    this.route.params
+  async ngOnInit() {
+    await this.route.params
       .subscribe(
         (params: Params) => {
           // this.id = +params['id'];
-          // this.list = this.listsService.getList(this.id);
+          console.log('list-details -> ngOnInit() -> params.id', params.id);
+          this.id = params.id;
+          // this.list = this.listsService.getSource(this.id);
+          // console.log('list-details -> ngOnInit() -> subscribe -> this.list', this.list);
+          this.getDetail();
         }
       );
-      this.initializeSources();
+
+    // /* WHY DON"T YOU NEED TO USE 'THIS' IN FRONT OF LOCATION??!?!?! */
+    // let afterBackSlash = location.pathname;
+    // let afterRegex = afterBackSlash.match(/[^/]*$/);
+    // console.log('list-detail -> ngOnInit() -> afterBackSlash', afterRegex[0]);
+    // console.log('list-detail -> ngOnInit() -> this.list', this.list);
+    // this.list = await this.listsService.getSource(''+afterRegex[0]+'');
+    // console.log('list-detail -> ngOnInit() -> this.list', this.list);
+
+  }
+
+  testFunc2() {
+    console.log('testFunc()');
+    this.list.name = 'Test Func Name';
+  }
+
+  async getDetail() {
+    this.response = await this.mongoItemService.getSource(this.id);
+    await this.response.subscribe(data => {
+      // this.source = data;
+      console.log('list-details -> getDetail() -> data', data);
+      // this.source.name = data.name;
+      this.list = data;
+    });
   }
 
   onEditList() {
@@ -42,8 +73,8 @@ export class ListDetailComponent implements OnInit {
   }
 
   onDeleteList() {
-    this.listsService.deleteList(this.id);
-    this.router.navigate(['/lists']);
+    // this.listsService.deleteList(this.id);
+    // this.router.navigate(['/lists']);
   }
 
   initializeSources() {
@@ -51,6 +82,7 @@ export class ListDetailComponent implements OnInit {
     this.responseSources = this.mongoItemService.getAllSources();
     this.responseSources.subscribe((data) => {
         this.responseList = data;
+        console.log('this.responseList', this.responseList);
       }
     )
   }
