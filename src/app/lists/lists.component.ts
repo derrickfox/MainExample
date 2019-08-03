@@ -17,7 +17,7 @@ export class ListsComponent implements OnInit {
   }
 
   getListOfLists() {
-    this.listOfLists = this.listsService.getLists();
+    // this.listOfLists = this.listsService.getLists();
   }
 
 }

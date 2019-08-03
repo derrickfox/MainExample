@@ -1,12 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 
 import { List } from '../lists/list.model';
-import { Recipe } from '../lists/recipes/recipe.model';
 import { Source } from '../lists/sources/source.model';
-import { Biography } from '../lists/biographies/biography.model';
-import { Ingredient } from './recipes/ingredients/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 // import data from '../mockData.json';
 import { MongoItemService } from '../../mongo.service';
 
@@ -15,8 +12,6 @@ import { MongoItemService } from '../../mongo.service';
 @Injectable()
 export class ListsService implements OnInit {
   listsChanged = new Subject<List[]>();
-  recipesChanged = new Subject<Recipe[]>();
-  biographiesChanged = new Subject<Biography[]>();
   sourcesChanged = new Subject<Source[]>();
 
   listSelected;
@@ -25,150 +20,7 @@ export class ListsService implements OnInit {
   indexOfList;
   indexOfRecipe;
 
-  // listsJSON = jsonFile;
-
-  listsJSON = {
-    "lists": [
-      {
-        "name": "Recipes",
-        "description": "List of recipes",
-        "image": "some image",
-        "recipes": [
-          {
-            "name": "Banana Bread",
-            "description": "A banana cake disguised as bread.",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "Banana",
-                "amount": 4
-              },
-              {
-                "name": "Bread",
-                "amount": 8
-              }
-            ]
-          },
-          {
-            "name": "Steak",
-            "description": "Diced cow.",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "Cow",
-                "amount": 1
-              },
-              {
-                "name": "Plate",
-                "amount": 1
-              }
-            ]
-          }
-        ],
-        "sources": [
-          {
-            "name": "Banana Bread",
-            "description": "A banana cake disguised as bread.",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "Banana",
-                "amount": 4
-              },
-              {
-                "name": "Bread",
-                "amount": 8
-              }
-            ]
-          },
-          {
-            "name": "Steak",
-            "description": "Diced cow.",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "Cow",
-                "amount": 1
-              },
-              {
-                "name": "Plate",
-                "amount": 1
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Biographies",
-        "description": "Description dave",
-        "image": "some image dave",
-        "recipes": [
-          {
-            "name": "Frank Herbert",
-            "description": "Science fiction author",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "Beef",
-                "amount": 6
-              },
-              {
-                "name": "Salt",
-                "amount": 9
-              }
-            ]
-          },
-          {
-            "name": "George Orwell",
-            "description": "Political fiction(?) author",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "1984",
-                "amount": 1
-              },
-              {
-                "name": "Animal Farm",
-                "amount": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Sources",
-        "description": "Description dave",
-        "image": "some image dave",
-        "recipes": [
-          {
-            "name": "Unemployement Statistics",
-            "description": "Statitics about US unemployement",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "US Statistics Stuff",
-                "amount": 6
-              }
-            ]
-          },
-          {
-            "name": "Housing Statistics",
-            "description": "Data on US housing",
-            "image": "some other image",
-            "ingredients": [
-              {
-                "name": "HUD Website",
-                "amount": 1
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-
   constructor(
-    private slService: ShoppingListService,
     private mongoItemService: MongoItemService
   ) { }
 
@@ -176,19 +28,15 @@ export class ListsService implements OnInit {
 
   }
 
-  getLists() {
-    return this.listsJSON.lists.slice();
-  }
+  // getLists() {
+  //   return this.listsJSON.lists.slice();
+  // }
 
-  getList(index: number) {
-    this.listSelected = this.listsJSON.lists[index];
-    this.indexOfList = index;
-    return this.listSelected;
-  }
-
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
-  }
+  // getList(index: number) {
+  //   this.listSelected = this.listsJSON.lists[index];
+  //   this.indexOfList = index;
+  //   return this.listSelected;
+  // }
 
   addList(list) {
     // this.listsJSON.lists.push(list);
@@ -205,24 +53,14 @@ export class ListsService implements OnInit {
     // this.listsChanged.next(this.lists.slice());
   }
 
-  getRecipes(index) {
-    return this.listsJSON.lists[index].recipes.slice();
-  }
+  // getRecipes(index) {
+  //   return this.listsJSON.lists[index].recipes.slice();
+  // }
 
-  getRecipe(index: number) {
-    this.recipeSelected = this.listsJSON.lists[this.indexOfList].recipes[index];
-    return this.recipeSelected;
-  }
-
-  addRecipe(recipe: Recipe) {
-    // this.selectedList.recipes.push(recipe);
-    // this.recipesChanged.next(this.selectedList.recipes.slice());
-  }
-
-  updateRecipe(index: number, newRecipe: Recipe) {
-    // this.selectedList.recipes[index] = newRecipe;
-    // this.recipesChanged.next(this.selectedList.recipes.slice());
-  }
+  // getRecipe(index: number) {
+  //   this.recipeSelected = this.listsJSON.lists[this.indexOfList].recipes[index];
+  //   return this.recipeSelected;
+  // }
 
   deleteRecipe(index: number) {
     // this.selectedList.recipes.splice(index, 1);
@@ -241,19 +79,33 @@ export class ListsService implements OnInit {
     
   }
 
-  getSources(index) {
-    return this.listsJSON.lists[index].sources.slice();
-  }
-
   getSource(id: string) {
-    // this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
-    // return this.resourceSelected;
+    // let urlEnd = Location.joinWithSlash('sources', '');
+    // console.log('urlEnd', urlEnd);
+    let myList;
     this.resourceSelected = this.mongoItemService.getSource(id);
     this.resourceSelected.subscribe(
       (data) => {
-        
+        console.log('list.service -> getSource(id)', data);
+        myList = data;
       }
     )
+    return myList;
+  }
+
+  getAllSources() {
+    // this.resourceSelected = this.listsJSON.lists[this.indexOfList].sources[index];
+    // return this.resourceSelected;
+
+    this.resourceSelected = this.mongoItemService.getAllSources();
+
+    // this.resourceSelected.subscribe(
+    //   (data) => {
+    //     console.log('getAllSources')
+    //     console.log('getAllSources -> data', data);
+    //   }
+    // )
+    return this.resourceSelected;
   }
 
   addSource(source: Source) {

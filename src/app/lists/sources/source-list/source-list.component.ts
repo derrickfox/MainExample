@@ -26,7 +26,8 @@ export class SourceListComponent implements OnInit, OnDestroy {
           this.sources = sources;
         }
       );
-    this.sources = this.listsService.getSources(0);
+      console.log('source-list -> ngOnInit()')
+    // this.sources = this.listsService.getSources(0);
   }
 
   onNewRecipe() {

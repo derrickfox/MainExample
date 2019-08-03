@@ -1,9 +1,12 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
-<h2>app.component</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <router-outlet></router-outlet>
+<div style="border: solid 1px yellow;">
+  <app-header (featureSelected)="onNavigate($event)"></app-header>
+  <h2>app.component</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
+

@@ -67,32 +67,32 @@ export class ListEditComponent implements OnInit {
     let listRecipes = new FormArray([]);
 
     if (this.editMode) {
-      const list = this.listService.getList(this.id);
-      listName = list.name;
-      // listImagePath = list.imagePath;
-      listDescription = list.description;
-      if (list['ingredients']) {
-        for (let recipe of list.recipes) {
-          listRecipes.push(
-            new FormGroup({
-              'name': new FormControl(recipe.name, Validators.required)
-              // ,
-              // 'amount': new FormControl(recipe.amount, [
-              //   Validators.required,
-              //   Validators.pattern(/^[1-9]+[0-9]*$/)
-              // ])
-            })
-          );
-        }
+      // const list = this.listService.getList(this.id);
+      // listName = list.name;
+      // // listImagePath = list.imagePath;
+      // listDescription = list.description;
+      // if (list['ingredients']) {
+      //   for (let recipe of list.recipes) {
+      //     listRecipes.push(
+      //       new FormGroup({
+      //         'name': new FormControl(recipe.name, Validators.required)
+      //         // ,
+      //         // 'amount': new FormControl(recipe.amount, [
+      //         //   Validators.required,
+      //         //   Validators.pattern(/^[1-9]+[0-9]*$/)
+      //         // ])
+      //       })
+      //     );
+      //   }
       }
     }
 
-    this.listForm = new FormGroup({
-      'name': new FormControl(listName, Validators.required),
-      'imagePath': new FormControl(listImagePath, Validators.required),
-      'description': new FormControl(listDescription, Validators.required),
-      'recipes': listRecipes
-    });
-  }
+  //   this.listForm = new FormGroup({
+  //     'name': new FormControl(listName, Validators.required),
+  //     'imagePath': new FormControl(listImagePath, Validators.required),
+  //     'description': new FormControl(listDescription, Validators.required),
+  //     'recipes': listRecipes
+  //   });
+  // }
 
 }
