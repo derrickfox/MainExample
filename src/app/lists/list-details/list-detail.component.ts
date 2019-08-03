@@ -84,7 +84,7 @@ export class ListDetailComponent implements OnInit {
         this.responseList = data;
         console.log('this.responseList', this.responseList);
       }
-    )
+    );
   }
 
 }
