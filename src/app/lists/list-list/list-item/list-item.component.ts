@@ -24,7 +24,7 @@ export class ListItemComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private mongoItemService: MongoItemService) {}
 
   ngOnInit() {
-    console.log("list-item -> ngOnInit() -> list", this.list);
+    // console.log("list-item -> ngOnInit() -> list", this.list);
   }
 
   testClick() {}
