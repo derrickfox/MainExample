@@ -1,10 +1,21 @@
-<div class="row" style="border: 1px solid aqua;">
-  <div class="col-md-4">
-    <h2>grand-list.component</h2>
-    <button class="btn btn-success" (click)="onNewList()">New List</button>
-    <app-list-item *ngFor="let listEl of lists" (list)="childEventClicked($list)" [list]="listEl"></app-list-item>
-  </div>
-  <div class="col-md-8">
-    <router-outlet></router-outlet>
+<div style="border: 1px solid blue;">
+  <h2>grand-list.component</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+        <a style="cursor: pointer;" routerLink="sources" class="list-group-item clearfix">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">Sources List</h4>
+            <p class="list-group-item-text">Sources</p>
+          </div>
+          <span class="pull-right">
+            <!-- <img [src]="listOfLists[2].imagePath" alt="{{ listOfLists[2].name }}" class="img-responsive"
+              style="max-height: 50px;"> -->
+          </span>
+        </a>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

@@ -8,11 +8,11 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ListsComponent } from './grand-list/lists.component';
+import { GrandListComponent } from './grand-list/grand-list.component';
 import { ListsService } from './grand-list/lists.service';
 import { ListDetailComponent } from './grand-list/list-details/list-detail.component';
 import { ListEditComponent } from './grand-list/list-edit/list-edit.component';
-import { GrandListComponent } from './grand-list/grand-list.component';
+import { ParentListComponent } from './grand-list/parent-list.component';
 import { ListStartComponent } from './grand-list/list-start/list-start.component';
 import { ListItemComponent } from './grand-list/list-item/list-item.component';
 
@@ -30,10 +30,10 @@ import { SourceItemComponent } from './grand-list/sources/source-list/source-ite
     AppComponent,
     HeaderComponent,
 
-    ListsComponent,
+    GrandListComponent,
     ListDetailComponent,
     ListEditComponent,
-    GrandListComponent,
+    ParentListComponent,
     ListStartComponent,
     ListItemComponent,
 
