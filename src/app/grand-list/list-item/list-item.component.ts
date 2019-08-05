@@ -1,15 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { MongoItemService } from '../../../../mongo.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MongoItemService } from '../../../mongo.service';
 
-import { List } from "../../list.model";
-import { Source } from "../../sources/source.model";
+import { List } from '../list.model';
+import { Source } from '../sources/source.model';
 // import { EventEmitter } from "events";
 
 @Component({
-  selector: "app-list-item",
-  templateUrl: "./list-item.component.html",
-  styleUrls: ["./list-item.component.css"]
+  selector: 'app-list-item',
+  templateUrl: './list-item.component.html',
+  styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
   @Input() list;
@@ -17,8 +17,8 @@ export class ListItemComponent implements OnInit {
   @Output() source: Source;
   @Output() listEmitted = new EventEmitter<List>();
   lists = [
-    { id: 1, name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'}, 
-    { id: 2, name: 'dafdad', description:'kjl;ad', imagePath: 'ddaaff'}]
+    { id: 1, name: 'kdjfa', description: 'kdjfadl', imagePath: 'jfdka;d'},
+    { id: 2, name: 'dafdad', description: 'kjl;ad', imagePath: 'ddaaff'}];
   response;
 
   constructor(private route: ActivatedRoute, private router: Router, private mongoItemService: MongoItemService) {}

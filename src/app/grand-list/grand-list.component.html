@@ -1,6 +1,6 @@
 <div class="row" style="border: 1px solid aqua;">
   <div class="col-md-4">
-    <h2>list-list.component</h2>
+    <h2>grand-list.component</h2>
     <button class="btn btn-success" (click)="onNewList()">New List</button>
     <app-list-item *ngFor="let listEl of lists" (list)="childEventClicked($list)" [list]="listEl"></app-list-item>
   </div>

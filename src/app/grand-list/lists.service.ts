@@ -2,8 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 
-import { List } from '../lists/list.model';
-import { Source } from '../lists/sources/source.model';
+import { List } from './list.model';
+import { Source } from './sources/source.model';
 // import data from '../mockData.json';
 import { MongoItemService } from '../../mongo.service';
 

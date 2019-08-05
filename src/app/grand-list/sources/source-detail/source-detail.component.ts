@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { Source } from "../../sources/source.model";
+import { Source } from "../source.model";
 
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
