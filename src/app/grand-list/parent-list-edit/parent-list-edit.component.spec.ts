@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListEditComponent } from './list-edit.component';
+import { ParentListEditComponent } from './parent-list-edit.component';
 
 describe('ListEditComponent', () => {
-  let component: ListEditComponent;
-  let fixture: ComponentFixture<ListEditComponent>;
+  let component: ParentListEditComponent;
+  let fixture: ComponentFixture<ParentListEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListEditComponent ]
+      declarations: [ ParentListEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListEditComponent);
+    fixture = TestBed.createComponent(ParentListEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

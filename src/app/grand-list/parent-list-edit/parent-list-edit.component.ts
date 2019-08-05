@@ -5,11 +5,11 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { ListsService } from '../lists.service';
 
 @Component({
-  selector: 'app-list-edit',
-  templateUrl: './list-edit.component.html',
-  styleUrls: ['./list-edit.component.css']
+  selector: 'app-parent-list-edit',
+  templateUrl: './parent-list-edit.component.html',
+  styleUrls: ['./parent-list-edit.component.css']
 })
-export class ListEditComponent implements OnInit {
+export class ParentListEditComponent implements OnInit {
   id: number;
   editMode = false;
   listForm: FormGroup;

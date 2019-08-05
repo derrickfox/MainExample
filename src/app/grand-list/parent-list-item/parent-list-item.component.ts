@@ -7,11 +7,11 @@ import { Source } from '../sources/source.model';
 // import { EventEmitter } from "events";
 
 @Component({
-  selector: 'app-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.css']
+  selector: 'app-parent-list-item',
+  templateUrl: './parent-list-item.component.html',
+  styleUrls: ['./parent-list-item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ParentListItemComponent implements OnInit {
   @Input() list;
   @Input() index: number;
   @Output() source: Source;

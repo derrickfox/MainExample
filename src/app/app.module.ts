@@ -10,11 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { GrandListComponent } from './grand-list/grand-list.component';
 import { ListsService } from './grand-list/lists.service';
-import { ListDetailComponent } from './grand-list/list-details/list-detail.component';
-import { ListEditComponent } from './grand-list/list-edit/list-edit.component';
+import { ParentListDetailComponent } from './grand-list/parent-list-details/parent-list-detail.component';
+import { ParentListEditComponent } from './grand-list/parent-list-edit/parent-list-edit.component';
 import { ParentListComponent } from './grand-list/parent-list.component';
-import { ListStartComponent } from './grand-list/list-start/list-start.component';
-import { ListItemComponent } from './grand-list/list-item/list-item.component';
+import { ParentListStartComponent } from './grand-list/parent-list-start/parent-list-start.component';
+import { ParentListItemComponent } from './grand-list/parent-list-item/parent-list-item.component';
 
 import { MongoItemService } from '../mongo.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,11 +31,11 @@ import { SourceItemComponent } from './grand-list/sources/source-list/source-ite
     HeaderComponent,
 
     GrandListComponent,
-    ListDetailComponent,
-    ListEditComponent,
+    ParentListDetailComponent,
+    ParentListEditComponent,
     ParentListComponent,
-    ListStartComponent,
-    ListItemComponent,
+    ParentListStartComponent,
+    ParentListItemComponent,
 
     DropdownDirective,
 
