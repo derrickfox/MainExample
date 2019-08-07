@@ -8,11 +8,11 @@ import { MongoItemService } from '../../../mongo.service';
 // import { EventEmitter } from 'protractor';
 
 @Component({
-  selector: 'app-list-detail',
-  templateUrl: './list-detail.component.html',
-  styleUrls: ['./list-detail.component.css']
+  selector: 'app-parent-list-detail',
+  templateUrl: './parent-list-detail.component.html',
+  styleUrls: ['./parent-list-detail.component.css']
 })
-export class ListDetailComponent implements OnInit {
+export class ParentListDetailComponent implements OnInit {
   @Input() list: List;
   id: string;
   recipe;

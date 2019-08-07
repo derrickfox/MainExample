@@ -8,34 +8,34 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ListsComponent } from './lists/lists.component';
-import { ListsService } from './lists/lists.service';
-import { ListDetailComponent } from './lists/list-details/list-detail.component';
-import { ListEditComponent } from './lists/list-edit/list-edit.component';
-import { ListListComponent } from './lists/list-list/list-list.component';
-import { ListStartComponent } from './lists/list-start/list-start.component';
-import { ListItemComponent } from './lists/list-list/list-item/list-item.component';
+import { GrandListComponent } from './grand-list/grand-list.component';
+import { ListsService } from './grand-list/lists.service';
+import { ParentListDetailComponent } from './grand-list/parent-list-details/parent-list-detail.component';
+import { ParentListEditComponent } from './grand-list/parent-list-edit/parent-list-edit.component';
+import { ParentListComponent } from './grand-list/parent-list.component';
+import { ParentListStartComponent } from './grand-list/parent-list-start/parent-list-start.component';
+import { ParentListItemComponent } from './grand-list/parent-list-item/parent-list-item.component';
 
 import { MongoItemService } from '../mongo.service';
 import { HttpClientModule } from '@angular/common/http';
-import { SourcesComponent } from './lists/sources/sources.component';
-import { SourceDetailComponent } from './lists/sources/source-detail/source-detail.component';
-import { SourceEditComponent } from './lists/sources/source-edit/source-edit.component';
-import { SourceListComponent } from './lists/sources/source-list/source-list.component';
-import { SourceStartComponent } from './lists/sources/source-start/source-start.component';
-import { SourceItemComponent } from './lists/sources/source-list/source-item/source-item.component';
+import { SourcesComponent } from './grand-list/sources/sources.component';
+import { SourceDetailComponent } from './grand-list/sources/source-detail/source-detail.component';
+import { SourceEditComponent } from './grand-list/sources/source-edit/source-edit.component';
+import { SourceListComponent } from './grand-list/sources/source-list/source-list.component';
+import { SourceStartComponent } from './grand-list/sources/source-start/source-start.component';
+import { SourceItemComponent } from './grand-list/sources/source-list/source-item/source-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
 
-    ListsComponent,
-    ListDetailComponent,
-    ListEditComponent,
-    ListListComponent,
-    ListStartComponent,
-    ListItemComponent,
+    GrandListComponent,
+    ParentListDetailComponent,
+    ParentListEditComponent,
+    ParentListComponent,
+    ParentListStartComponent,
+    ParentListItemComponent,
 
     DropdownDirective,
 

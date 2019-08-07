@@ -1,8 +1,8 @@
 <div class="row" style="border: 1px solid aqua;">
   <div class="col-md-4">
-    <h2>list-list.component</h2>
+    <h2>parent-list.component</h2>
     <button class="btn btn-success" (click)="onNewList()">New List</button>
-    <app-list-item *ngFor="let listEl of lists" (list)="childEventClicked($list)" [list]="listEl"></app-list-item>
+    <app-parent-list-item *ngFor="let listEl of lists" (list)="childEventClicked($list)" [list]="listEl"></app-parent-list-item>
   </div>
   <div class="col-md-8">
     <router-outlet></router-outlet>

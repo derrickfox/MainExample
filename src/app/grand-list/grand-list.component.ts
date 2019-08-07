@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ListsService } from './lists.service';
 
 @Component({
-  selector: 'app-lists',
-  templateUrl: './lists.component.html',
-  styleUrls: ['./lists.component.css']
+  selector: 'app-grand-list',
+  templateUrl: './grand-list.component.html',
+  styleUrls: ['./grand-list.component.css']
 })
-export class ListsComponent implements OnInit {
+export class GrandListComponent implements OnInit {
 
   listOfLists = [];
 
