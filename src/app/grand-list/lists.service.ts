@@ -32,11 +32,11 @@ export class ListsService implements OnInit {
   //   return this.listsJSON.lists.slice();
   // }
 
-  // getList(index: number) {
-  //   this.listSelected = this.listsJSON.lists[index];
-  //   this.indexOfList = index;
-  //   return this.listSelected;
-  // }
+  getList(index: number) {
+    // this.listSelected = this.listsJSON.lists[index];
+    this.indexOfList = index;
+    return this.listSelected;
+  }
 
   addList(list) {
     // this.listsJSON.lists.push(list);

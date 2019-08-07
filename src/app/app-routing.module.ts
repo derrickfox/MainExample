@@ -21,7 +21,7 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ParentListEditComponent },
       { path: 'sources', component: ParentListComponent, children: [
           { path: '', component: ParentListStartComponent },
-          { path: 'new', component: ParentListStartComponent },
+          { path: 'new', component: ParentListEditComponent },
           { path: ':id', component: ParentListDetailComponent },
           { path: ':id/edit', component: SourceEditComponent }
         ]
