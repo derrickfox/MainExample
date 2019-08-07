@@ -26,7 +26,7 @@ export class ParentListDetailComponent implements OnInit {
     private location: Location,
     private mongoItemService: MongoItemService
     ) {
-      // this.list = { _id: 'kadf', name: 'constructor name', description: 'lkfjdka', imagePath: ''}
+      this.list = { _id: 'kadf', name: 'constructor name', description: 'lkfjdka', imagePath: ''}
 }
 
   async ngOnInit() {
