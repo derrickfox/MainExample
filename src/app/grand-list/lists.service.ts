@@ -39,6 +39,8 @@ export class ListsService implements OnInit {
   }
 
   addList(list) {
+    console.log('lists.service -> addList(list) -> list', list);
+    this.mongoItemService.insertSource(list);
     // this.listsJSON.lists.push(list);
     // this.listsChanged.next(this.lists.slice());
   }
@@ -111,6 +113,8 @@ export class ListsService implements OnInit {
   addSource(source: Source) {
     // this.selectedList.recipes.push(recipe);
     // this.recipesChanged.next(this.selectedList.recipes.slice());
+    const returned = this.mongoItemService.insertSource(source);
+    returned.subscribe();
   }
 
   updateSource(index: number, newSource: Source) {
