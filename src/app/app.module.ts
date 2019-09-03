@@ -16,6 +16,8 @@ import { ParentListComponent } from './grand-list/parent-list.component';
 import { ParentListStartComponent } from './grand-list/parent-list-start/parent-list-start.component';
 import { ParentListItemComponent } from './grand-list/parent-list-item/parent-list-item.component';
 
+import { SearchStringPipe } from './grand-list/search-bar-pipe';
+
 import { MongoItemService } from '../mongo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SourcesComponent } from './grand-list/sources/sources.component';
@@ -29,6 +31,8 @@ import { SourceItemComponent } from './grand-list/sources/source-list/source-ite
   declarations: [
     AppComponent,
     HeaderComponent,
+
+    SearchStringPipe,
 
     GrandListComponent,
     ParentListDetailComponent,
