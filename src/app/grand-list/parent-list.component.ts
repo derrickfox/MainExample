@@ -12,6 +12,7 @@ import { MongoItemService } from '../../mongo.service';
   templateUrl: './parent-list.component.html',
   styleUrls: ['./parent-list.component.css']
 })
+
 export class ParentListComponent implements OnInit, OnDestroy {
   list: List;
   lists = [
